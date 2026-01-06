@@ -4,7 +4,7 @@ alias mklink="cmd //c mklink"
 alias vim="nvim"
 
 if command -v eza > /dev/null; then
-    alias ls="eza --icons=always --group-directories-first"
+    alias ls="eza --icons=always --group-directories-first -h"
 fi
 alias ll="ls -l"
 alias la="ls -Al"
