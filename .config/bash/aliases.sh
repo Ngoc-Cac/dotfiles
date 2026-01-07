@@ -3,6 +3,8 @@
 alias mklink="cmd //c mklink"
 alias vim="nvim"
 
+### File Listing ###
+# use eza instead of ls if available
 if command -v eza > /dev/null; then
     alias ls="eza --icons=always --group-directories-first -h"
 fi
@@ -18,9 +20,12 @@ alias rv="rm"
 alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 
-# quick git commands
+### Git Commands ###
 alias gs="git status"
 alias gl="git log --graph --oneline"
 alias gla="gl --all"
 
 alias conda_act="source ~/miniconda3/Scripts/activate"
+
+alias ..="cd .."
+alias ...="cd ../.."
