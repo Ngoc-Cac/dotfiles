@@ -24,4 +24,7 @@ if _cmd_exists oh-my-posh; then
     eval "$(oh-my-posh init bash --config slimfat)"
 fi
 
+if _cmd_exists fastfetch; then
+    fastfetch -c ~/.config/fastfetch/config.jsonc
+fi
 unset -f _cmd_exists
