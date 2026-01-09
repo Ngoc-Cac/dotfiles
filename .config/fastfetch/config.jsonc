@@ -9,9 +9,15 @@
     "cpu", "gpu",
     "break",
     "memory", "disk",
+    "break",
     "terminalfont",
     "terminaltheme",
-    "colors"
+    "colors",
+    {
+        "type": "command",
+        "key": "Startup Time",
+        "text": "echo %STARTUP_TIME% ms"
+    }
     // "kernel",
     // "uptime",
     // "packages",

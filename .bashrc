@@ -1,3 +1,6 @@
+# the get the start time in terms of nanosecs
+bash_start=$(date +%s%N)
+
 _cmd_exists() { command -v "$1" > /dev/null; }
 
 # quick command to commit to the bare repo tracking this configuration setup
@@ -20,9 +23,11 @@ if _cmd_exists oh-my-posh; then
     eval "$(oh-my-posh init bash --config slimfat)"
 fi
 
-if _cmd_exists fastfetch; then
-    fastfetch -c ~/.config/fastfetch/config.jsonc
-fi
 
+if _cmd_exists fastfetch; then
+    export STARTUP_TIME=$(( ($(date +%s%N) - $bash_start) / 1000000 ))
+    fastfetch -c ~/.config/fastfetch/config.jsonc
+    unset STARTUP_TIME
+fi
 
 unset -f _cmd_exists
