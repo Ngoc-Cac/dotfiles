@@ -3,10 +3,15 @@ bash_start=$(date +%s%N)
 
 _cmd_exists() { command -v "$1" > /dev/null; }
 
+
+# auto cd when entering dirname
+shopt -s autocd
+
 # quick command to commit to the bare repo tracking this configuration setup
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 
+# configurations and utilities
 source ~/.config/bash/env.sh
 
 source ~/.config/bash/aliases.sh
@@ -27,6 +32,7 @@ fi
 if _cmd_exists fastfetch; then
     export STARTUP_TIME=$(( ($(date +%s%N) - $bash_start) / 1000000 ))
     fastfetch -c ~/.config/fastfetch/config.jsonc
+    unset bash_start
     unset STARTUP_TIME
 fi
 
