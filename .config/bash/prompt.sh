@@ -38,3 +38,5 @@ export PYTHONIOENCODING=utf-8
 
 PS1="[$BLUE\u@\h$RESET] $BYELLOW󰉋 \w \$(_git_info)"
 PS1+="\012\$(_exit_code_info) ~#@❯$RESET  "
+
+PS2="  󱞪 "
