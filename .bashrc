@@ -19,7 +19,10 @@ source ~/.config/bash/functions.sh
 
 _cmd_exists fzf && eval "$(fzf --bash)"
 _cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
-_cmd_exists oh-my-posh && eval "$(oh-my-posh init bash --config slimfat)"
+
+# prompt
+# _cmd_exists oh-my-posh && eval "$(oh-my-posh init bash --config slimfat)"
+source ~/.config/bash/prompt.sh
 
 
 if _cmd_exists fastfetch; then
