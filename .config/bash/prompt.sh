@@ -24,7 +24,7 @@ _git_info() {
 
     local counts=""
     [[ "$behind" -gt 0 ]] && counts="$YELLOW↓$behind "
-    [[ "$ahead" -gt 0 ]] && counts="$counts$BGREEN↑$ahead"
+    [[ "$ahead" -gt 0 ]] && counts+="$BGREEN↑$ahead"
 
     printf "\033[0;1m$RESET $(__git_ps1 "$MAGENTA%s$BOLD") $counts$RESET"
 
