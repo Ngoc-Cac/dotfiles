@@ -13,20 +13,13 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # configurations and utilities
 source ~/.config/bash/env.sh
-
 source ~/.config/bash/aliases.sh
-
 source ~/.config/bash/functions.sh
 
 
-if _cmd_exists fzf; then eval "$(fzf --bash)"; fi
-
-if _cmd_exists zoxide; then eval "$(zoxide init bash --cmd go)"; fi
-
-if _cmd_exists oh-my-posh; then
-    # eval "$(oh-my-posh init bash --config gruvbox)"
-    eval "$(oh-my-posh init bash --config slimfat)"
-fi
+_cmd_exists fzf && eval "$(fzf --bash)"
+_cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
+_cmd_exists oh-my-posh && eval "$(oh-my-posh init bash --config slimfat)"
 
 
 if _cmd_exists fastfetch; then
