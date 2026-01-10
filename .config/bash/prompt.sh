@@ -1,6 +1,17 @@
 #!/bin/bash
 
-_exit_code_info() { [[ $? -eq 0 ]] && printf "\033[32m" || printf "\033[31m󰬅"; }
+BLUE="\033[34m"
+BGREEN="\033[92m"
+GREEN="\033[32m"
+MAGENTA="\033[35m"
+RED="\033[31m"
+BYELLOW="\033[93m"
+YELLOW="\033[33m"
+
+RESET="\033[0m"
+BOLD="\033[1m"
+
+_exit_code_info() { [[ $? -eq 0 ]] && printf "$GREEN" || printf "$RED"; }
 _git_info() {
     local exit_code=$?
 
@@ -12,18 +23,10 @@ _git_info() {
     local behind=$(git rev-list --count HEAD..${upstream} 2>/dev/null)
 
     local counts=""
-    [[ "$behind" -gt 0 ]] && counts="\033[91m↓$behind "
-    [[ "$ahead" -gt 0 ]] && counts="$counts\033[92m↑$ahead"
+    [[ "$behind" -gt 0 ]] && counts="$YELLOW↓$behind "
+    [[ "$ahead" -gt 0 ]] && counts="$counts$BGREEN↑$ahead"
 
-    local branch=$(__git_ps1 "\033[35m%s") 
-    printf "($branch $counts)"
-
-    return $exit_code
-}
-_conda_info() {
-    local exit_code=$?
-
-    [[ -n "$CONDA_DEFAULT_ENV" ]] && printf "(%s) " "$CONDA_DEFAULT_ENV"
+    printf "\033[0;1m$RESET $(__git_ps1 "$MAGENTA%s$BOLD") $counts$RESET"
 
     return $exit_code
 }
@@ -33,5 +36,5 @@ _conda_info() {
 # parse the ps1 command 
 export PYTHONIOENCODING=utf-8
 
-PS1='$(_conda_info)\033[34m\u@\h \033[93m󰉋 \w \033[0m$(_git_info)'
-PS1+='\012$(_exit_code_info) ~#@❯\033[0m  '
+PS1="[$BLUE\u@\h$RESET] $BYELLOW󰉋 \w \$(_git_info)"
+PS1+="\012\$(_exit_code_info) ~#@❯$RESET  "
