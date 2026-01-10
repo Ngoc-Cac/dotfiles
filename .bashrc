@@ -15,14 +15,11 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 source ~/.config/bash/env.sh
 source ~/.config/bash/aliases.sh
 source ~/.config/bash/functions.sh
+source ~/.config/bash/prompt.sh  # ps1 prompt
 
 
 _cmd_exists fzf && eval "$(fzf --bash)"
 _cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
-
-# prompt
-# _cmd_exists oh-my-posh && eval "$(oh-my-posh init bash --config slimfat)"
-source ~/.config/bash/prompt.sh
 
 
 if _cmd_exists fastfetch; then
