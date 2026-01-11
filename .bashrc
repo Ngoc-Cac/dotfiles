@@ -1,5 +1,5 @@
 # the get the start time in terms of nanosecs
-bash_start=$(date +%s%N)
+STARTUP_TIME=$(date +%s%N)
 
 _cmd_exists() { command -v "$1" > /dev/null; }
 
@@ -17,15 +17,16 @@ source ~/.config/bash/aliases.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/prompt.sh  # ps1 prompt
 
+[[ -f ~/.config/bash/.dircolors ]] && eval $(dircolors ~/.config/bash/.dircolors)
 
 _cmd_exists fzf && eval "$(fzf --bash)"
 _cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
 
 
-if _cmd_exists fastfetch; then
-    export STARTUP_TIME=$(( ($(date +%s%N) - $bash_start) / 1000000 ))
+# only call fastfetch if not in nvim
+if _cmd_exists fastfetch && [[ -z "$NVIM" ]]; then
+    export STARTUP_TIME=$(( ($(date +%s%N) - $STARTUP_TIME) / 1000000 ))
     fastfetch -c ~/.config/fastfetch/config.jsonc
-    unset bash_start
     unset STARTUP_TIME
 fi
 
