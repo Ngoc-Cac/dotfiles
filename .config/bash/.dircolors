@@ -1,0 +1,214 @@
+# Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+# This source code is licensed under the MIT license found in the license file.
+# This is a derivative of the above work.
+
+COLOR tty
+
+TERM tmux-256color
+TERM tmux-direct
+TERM screen-256color
+TERM xterm-256color
+TERM xterm-direct
+
+#+-----------------+
+#+ Global Defaults +
+#+-----------------+
+NORMAL 00
+RESET 0
+
+FILE 00
+DIR 1;38;5;220
+LINK 36
+MULTIHARDLINK 04;36
+
+FIFO 04;01;36
+SOCK 04;33
+DOOR 04;01;36
+BLK 01;33
+CHR 33
+
+ORPHAN 31
+MISSING 01;37;41
+
+EXEC 38;5;9
+
+SETUID 01;04;37
+SETGID 01;04;37
+CAPABILITY 01;37
+
+STICKY_OTHER_WRITABLE 01;37;44
+OTHER_WRITABLE 01;04;34
+STICKY 04;37;44
+
+#+-------------------+
+#+ Extension Pattern +
+#+-------------------+
+#+--- Archives ---+
+.7z 01;32
+.ace 01;32
+.alz 01;32
+.arc 01;32
+.arj 01;32
+.bz 01;32
+.bz2 01;32
+.cab 01;32
+.cpio 01;32
+.deb 01;32
+.dz 01;32
+.ear 01;32
+.gz 01;32
+.jar 01;32
+.lha 01;32
+.lrz 01;32
+.lz 01;32
+.lz4 01;32
+.lzh 01;32
+.lzma 01;32
+.lzo 01;32
+.rar 01;32
+.rpm 01;32
+.rz 01;32
+.sar 01;32
+.t7z 01;32
+.tar 01;32
+.taz 01;32
+.tbz 01;32
+.tbz2 01;32
+.tgz 01;32
+.tlz 01;32
+.txz 01;32
+.tz 01;32
+.tzo 01;32
+.tzst 01;32
+.war 01;32
+.xz 01;32
+.z 01;32
+.Z 01;32
+.zip 01;32
+.zoo 01;32
+.zst 01;32
+
+#+--- Audio ---+
+.aac 36
+.au 36
+.flac 36
+.m4a 36
+.mid 36
+.midi 36
+.mka 36
+.mp3 36
+.mpa 36
+.mpeg 36
+.mpg 36
+.ogg 36
+.opus 36
+.ra 36
+.wav 36
+
+#+--- Customs ---+
+.3des 01;35
+.aes 01;35
+.gpg 01;35
+.pgp 01;35
+
+#+--- Documents ---+
+.doc 94
+.docx 94
+.dot 32
+.odg 32
+.odp 32
+.ods 32
+.odt 32
+.otg 32
+.otp 32
+.ots 32
+.ott 32
+.pdf 38;5;135
+.ppt 38;5;208
+.pptx 38;5;208
+.xls 38;5;46
+.xlsx 38;5;46
+
+#+--- Executables ---+
+.app 38;5;9
+.bat 38;5;9
+.btm 38;5;9
+.cmd 38;5;9
+.com 38;5;9
+.exe 38;5;9
+.reg 38;5;9
+
+#+--- Ignores ---+
+*~ 02;37
+.bak 02;37
+.BAK 02;37
+.log 02;37
+.log 02;37
+.old 02;37
+.OLD 02;37
+.orig 02;37
+.ORIG 02;37
+.swo 02;37
+.swp 02;37
+
+#+--- Images ---+
+.bmp 32
+.cgm 32
+.dl 32
+.dvi 32
+.emf 32
+.eps 32
+.gif 38;5;205
+.jpeg 38;5;123
+.jpg 38;5;123
+.JPG 38;5;123
+.mng 32
+.pbm 32
+.pcx 32
+.pgm 32
+.png 38;5;123
+.PNG 38;5;123
+.ppm 32
+.pps 32
+.ppsx 32
+.ps 32
+.svg 32
+.svgz 32
+.tga 32
+.tif 32
+.tiff 32
+.xbm 32
+.xcf 32
+.xpm 32
+.xwd 32
+.xwd 32
+.yuv 32
+
+#+--- Video ---+
+.anx 32
+.asf 32
+.avi 32
+.axv 32
+.flc 32
+.fli 32
+.flv 32
+.gl 32
+.m2v 32
+.m4v 32
+.mkv 32
+.mov 32
+.MOV 32
+.mp4 32
+.mpeg 32
+.mpg 32
+.nuv 32
+.ogm 32
+.ogv 32
+.ogx 32
+.qt 32
+.rm 32
+.rmvb 32
+.swf 32
+.vob 32
+.webm 32
+.wmv 32
