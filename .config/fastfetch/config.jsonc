@@ -4,23 +4,27 @@
   "modules": [
     "title",
     "separator",
-    "os", "host",
-    "break",
-    "cpu", "gpu",
-    "break",
-    "memory", "disk",
-    "break",
-    "terminalfont",
-    "terminaltheme",
-    "colors",
+
     {
         "type": "command",
         "key": "Startup Time",
         "text": "echo %STARTUP_TIME% ms"
-    }
+    },
+    "uptime", "packages",
+    // "os", "host",
+    "break",
+
+    // "cpu", "gpu",
+    // "break",
+
+    "memory", "disk",
+    "break",
+
+    "terminalfont",
+    "terminaltheme",
+    "colors"
+    
     // "kernel",
-    // "uptime",
-    // "packages",
     // "shell",
     // "display",
     // "de",
