@@ -17,7 +17,7 @@ source ~/.config/bash/aliases.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/prompt.sh  # ps1 prompt
 
-[[ -f ~/.config/bash/.dircolors ]] && eval $(dircolors ~/.config/bash/.dircolors)
+[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
 _cmd_exists fzf && eval "$(fzf --bash)"
 _cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
