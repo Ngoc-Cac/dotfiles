@@ -1,6 +1,9 @@
 #!/bin/bash
-# for making symlinks ON WINDOWS
-[[ "$OSTYPE" =~ ^(msys|cygwin) ]] && alias mklink="cmd //c mklink"
+if [[ "$OSTYPE" =~ ^(msys|cygwin) ]]; then
+    # for making symlinks ON WINDOWS
+    alias mklink='cmd //c mklink'
+    alias sudo='gsudo'
+fi
 
 ### Listing Commands ###
 # use eza instead of ls if available
