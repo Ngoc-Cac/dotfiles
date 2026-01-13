@@ -1,13 +1,9 @@
 #!/bin/bash
-if [[ "$OSTYPE" =~ ^(msys|cygwin) ]]; then
-    # for making symlinks ON WINDOWS
-    alias mklink='cmd //c mklink'
-    alias sudo='gsudo'
-fi
+[[ "$OSTYPE" =~ ^(msys|cygwin) ]] && source ~/.config/bash/aliases_win.sh
 
 ### Listing Commands ###
 # use eza instead of ls if available
-command -v eza > /dev/null && alias ls="eza --icons=auto --group-directories-first -h"
+command -v eza > /dev/null && alias ls="eza --icons=auto --group-directories-first --git -h"
 
 alias ll="ls -l"
 alias la="ls -Al"
