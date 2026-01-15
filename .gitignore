@@ -1,1 +1,6 @@
-*
+/*
+
+### exclusion zone ###
+# directories need to be surrounded by // 
+!.gitignore
+!/.config/
