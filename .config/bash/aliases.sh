@@ -27,11 +27,14 @@ alias gs="git status"
 alias gl="git log --graph --oneline"
 alias gla="gl --all"
 
-### Misc ###
-alias cl="clear"
-alias nv="nvim"
+### Neovim ###
 alias vi="nvim"
 alias vim="nvim"
+alias nv="nvim"
+alias ns='nvim -c "SessionManager load_last_session"'
+
+### Misc ###
+alias cl="clear"
 alias conda_act="source ~/miniconda3/Scripts/activate"
 
 alias ..="cd .."
