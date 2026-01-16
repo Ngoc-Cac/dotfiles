@@ -29,10 +29,11 @@ source ~/.config/bash/functions.sh
 source ~/.config/bash/prompt.sh  # ps1 prompt
 
 
-# load these asynchronously 
-[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
-_cmd_exists fzf && eval "$(fzf --bash)"
+# load these in the background 
+[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors) &
+
 _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
+_cmd_exists fzf && load_fzf() { eval "$(fzf --bash)"; }
 
 
 # only call fastfetch if not in nvim
