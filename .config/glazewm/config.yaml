@@ -17,7 +17,6 @@ general:
   show_all_in_taskbar: false
 
 gaps:
-  # Whether to scale the gaps with the DPI of the monitor.
   scale_with_dpi: true
 
   # Gap between adjacent windows.
@@ -25,8 +24,8 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '6px'
-    right: '2px'
+    top: '2px'
+    right: '1px'
     bottom: '2px'
     left: '2px'
 
@@ -45,27 +44,19 @@ window_effects:
       style: 'small_rounded'
     transparency:
       enabled: true
-      opacity: '.9'
+      opacity: '.95'
 
 window_behavior:
-  # New windows are created in this state whenever possible.
-  # Allowed values: 'tiling', 'floating'.
   initial_state: 'floating'
 
   state_defaults:
     floating:
-      # Whether to center floating windows by default.
       centered: true
-
-      # Whether to show floating windows as always on top.
       shown_on_top: false
 
     fullscreen:
-      # Maximize the window if possible. If the window doesn't have a
-      # maximize button, then it'll be fullscreen'ed normally instead.
+      # maximize instead of fullscreen if have maximize button
       maximized: true
-
-      # Whether to show fullscreen windows as always on top.
       shown_on_top: false
 
 workspaces:
@@ -83,15 +74,25 @@ window_rules:
   # start in fullscreen
   - commands: ['set-fullscreen']
     match:
-      - window_process: { regex: "brave" }
-
-      - window_title: { regex: "Visual Studio Code" }
-
-      - window_title: { regex: "PDF Reader" }
+      - window_process: { equals: "brave" }
+      - window_process: { equals: "Code" }
 
       - window_title: { equals: "Slack" }
       - window_title: { equals: "Discord" }
       - window_title: { equals: "Cell to Singularity" }
+
+      - window_title: { regex: "PDF Reader" }
+
+      # office stuff
+      - window_process: { equals: 'EXCEL' }
+      - window_process: { equals: 'WINWORD' }
+      - window_process: { equals: 'POWERPNT' }
+
+  # resize the winows correctly at startup
+  - commands: ['size --width 1855 --height 965']
+    match:
+      - window_process: { equals: "WindowsTerminal" }
+      - window_process: { equals: "explorer" }
 
   - commands: ['ignore']
     match:
@@ -111,16 +112,9 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-      - window_process: { equals: 'EXCEL' }
-        window_class: { not_regex: 'XLMAIN' }
-      - window_process: { equals: 'WINWORD' }
-        window_class: { not_regex: 'OpusApp' }
-      - window_process: { equals: 'POWERPNT' }
-        window_class: { not_regex: 'PPTFrameClass' }
       - window_title: { equals: "Idle Slayer" } 
 
 binding_modes:
-  # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
     keybindings:
       - commands: ['resize --width -1%']
@@ -136,7 +130,8 @@ binding_modes:
         bindings: ['escape', 'enter']
 
 keybindings:
-  - commands: ['shell-exec E:/Git/bin/bash.exe -i -l']
+  # - commands: ['shell-exec E:/Git/bin/bash.exe']
+  - commands: ['shell-exec wt.exe -p "Bash"']
     bindings: ['alt+enter']
 
   # resize mode without holding alt baiscally 
@@ -163,8 +158,7 @@ keybindings:
   - commands: ['move --direction down']
     bindings: ['alt+shift+j']
 
-  # Move the focused window's parent workspace to a monitor in a given
-  # direction.
+  # Move the focused window's parent workspace to a monitor in a given direction.
   - commands: ['move-workspace --direction left']
     bindings: ['alt+shift+a']
   - commands: ['move-workspace --direction right']
