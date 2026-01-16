@@ -31,7 +31,6 @@ alias gla="gl --all"
 alias vi="nvim"
 alias vim="nvim"
 alias nv="nvim"
-alias ns='nvim -c "SessionManager load_last_session"'
 
 ### Misc ###
 alias cl="clear"
