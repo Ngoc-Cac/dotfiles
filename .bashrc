@@ -2,7 +2,18 @@
 STARTUP_TIME=$(date +%s%N)
 
 _cmd_exists() { command -v "$1" > /dev/null; }
+_lazy_load() {
+    local cmd_name="$1"
+    local init_cmd="$2"
 
+    # unset the load fn first, then init the cmd
+    # and run it with given args 
+    eval "$cmd_name() {
+        unset -f $cmd_name
+        eval \"\$($init_cmd)\"
+        $cmd_name \"\$@\"
+    }"
+}
 
 # auto cd when entering dirname
 shopt -s autocd
@@ -17,10 +28,11 @@ source ~/.config/bash/aliases.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/prompt.sh  # ps1 prompt
 
-[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
+# load these asynchronously 
+[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 _cmd_exists fzf && eval "$(fzf --bash)"
-_cmd_exists zoxide && eval "$(zoxide init bash --cmd go)"
+_cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
 
 
 # only call fastfetch if not in nvim
