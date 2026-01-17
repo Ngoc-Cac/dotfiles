@@ -29,11 +29,14 @@ source ~/.config/bash/functions.sh
 source ~/.config/bash/prompt.sh  # ps1 prompt
 
 
-# load these in the background 
-[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors) &
+[[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
-_cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
-_cmd_exists fzf && load_fzf() { eval "$(fzf --bash)"; }
+# wizardry lazy loading, for fzf, this means no c-r and alt-c tho 
+_cmd_exists fzf &&\
+    _lazy_load __fzf_select__ "fzf --bash" &&\
+    bind -x '"\C-t": __fzf_select__ '
+_cmd_exists zoxide &&\
+    _lazy_load go "zoxide init bash --cmd go"
 
 
 # only call fastfetch if not in nvim
@@ -44,3 +47,4 @@ if _cmd_exists fastfetch && [[ -z "$NVIM" ]]; then
 fi
 
 unset -f _cmd_exists
+unset -f _lazy_load
