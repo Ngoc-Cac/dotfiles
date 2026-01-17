@@ -131,8 +131,10 @@ binding_modes:
 
 keybindings:
   # - commands: ['shell-exec E:/Git/bin/bash.exe']
-  - commands: ['shell-exec wt.exe -p "Bash"']
+  - commands: ['shell-exec wt.exe'] # windows terminal
     bindings: ['alt+enter']
+  - commands: ['shell-exec %userprofile%\.config\ahk\main.ahk'] # autohotkey script
+    bindings: ['alt+a']
 
   # resize mode without holding alt baiscally 
   - commands: ['wm-enable-binding-mode --name resize']
