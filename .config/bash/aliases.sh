@@ -24,6 +24,7 @@ alias rv="rm"
 
 ### Git Commands ###
 alias gs="git status"
+alias gc="git commit"
 alias gl="git log --graph --oneline"
 alias gla="gl --all"
 
