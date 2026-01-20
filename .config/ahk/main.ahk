@@ -1,5 +1,6 @@
 #SingleInstance force
 
+#Include disable.ahk
 #Include alt-tab.ahk
 #Include ahk-binds.ahk
 #Include hjkl-mode.ahk
