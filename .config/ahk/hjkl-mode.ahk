@@ -2,8 +2,10 @@ class HJKLMode
 {
     static active := false
     static paused := false
-    static overlay_status := Gui("+AlwaysOnTop +ToolWindow -Caption +E0x20") ; +Border
-    static _show_opts := "x" (A_ScreenWidth - 360) " y" (A_ScreenHeight - 170) " NoActivate"
+
+    ; +E0x20 is the non-interactive window thingy
+    static overlay_status := Gui("+AlwaysOnTop +ToolWindow -Caption +E0x20")
+    static _show_opts := "x" (30) " y" (20) " NoActivate"
 
     static init_gui()
     {
@@ -32,13 +34,16 @@ class HJKLMode
 }
 HJKLMode.init_gui()
 
-RCtrl::HJKLMode.toggle_pause()
-
 #HotIf not HJKLMode.paused
 CapsLock::HJKLMode.toggle()
 #HotIf
 
 #HotIf HJKLMode.active
+; weird ass scrolling
+d::WheelDown
+u::WheelUp
+
+; just vim stuff
 h::Left
 l::Right
 j::Down
