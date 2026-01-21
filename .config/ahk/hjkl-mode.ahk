@@ -1,7 +1,7 @@
 class HJKLMode
 {
     static active := false
-    static paused := false
+    ; static paused := false
 
     ; +E0x20 is the non-interactive window thingy
     static overlay_status := Gui("+AlwaysOnTop +ToolWindow -Caption +E0x20")
@@ -25,16 +25,17 @@ class HJKLMode
             this.overlay_status.Hide()
     }
 
-    static toggle_pause()
+    /* static toggle_pause()
     {
         this.paused := !this.paused
         if this.active ; de-activate when active
             this.toggle()
     }
+    */
 }
 HJKLMode.init_gui()
 
-#HotIf not HJKLMode.paused
+#HotIf
 CapsLock::HJKLMode.toggle()
 #HotIf
 
