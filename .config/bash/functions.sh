@@ -53,5 +53,5 @@ EOF
         return 1
     fi
 
-    source "$venv_path/Scripts/activate"
+    . "$venv_path/Scripts/activate"
 }

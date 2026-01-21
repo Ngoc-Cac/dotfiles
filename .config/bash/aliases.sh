@@ -1,5 +1,5 @@
 #!/bin/bash
-[[ "$OSTYPE" =~ ^(msys|cygwin) ]] && source ~/.config/bash/aliases_win.sh
+[[ "$OSTYPE" =~ ^(msys|cygwin) ]] && . ~/.config/bash/aliases_win.sh
 
 ### Listing Commands ###
 # use eza instead of ls if available
@@ -35,7 +35,7 @@ alias nv="nvim"
 
 ### Misc ###
 alias cl="clear"
-alias conda_act="source ~/miniconda3/Scripts/activate"
+alias conda_act=". ~/miniconda3/Scripts/activate"
 
 alias ..="cd .."
 alias ...="cd ../.."

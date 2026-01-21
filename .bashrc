@@ -23,10 +23,10 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 
 # configurations and utilities
-source ~/.config/bash/env.sh
-source ~/.config/bash/aliases.sh
-source ~/.config/bash/functions.sh
-source ~/.config/bash/prompt.sh  # ps1 prompt
+. ~/.config/bash/env.sh
+. ~/.config/bash/aliases.sh
+. ~/.config/bash/functions.sh
+. ~/.config/bash/prompt.sh  # ps1 prompt
 
 
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
