@@ -35,7 +35,7 @@ alias nv="nvim"
 
 ### Misc ###
 alias cl="clear"
-alias conda_act=". ~/miniconda3/Scripts/activate"
+alias conda-act=". ~/miniconda3/Scripts/activate"
 
 alias ..="cd .."
 alias ...="cd ../.."

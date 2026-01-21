@@ -1,6 +1,6 @@
 #!/bin/bash
 
-venv_act() {
+venv-act() {
     if [[ $1 == "-h" || $1 == "--help" ]]; then
         cat << EOF
 Activate the given Python virtual environment.
