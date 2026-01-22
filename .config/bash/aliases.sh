@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 [[ "$OSTYPE" =~ ^(msys|cygwin) ]] && . ~/.config/bash/aliases_win.sh
 
 ### Listing Commands ###
