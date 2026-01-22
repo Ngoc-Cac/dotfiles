@@ -26,7 +26,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 . ~/.config/bash/env.sh
 . ~/.config/bash/aliases.sh
 . ~/.config/bash/functions.sh
-. ~/.config/bash/prompt.sh  # ps1 prompt
+. ~/.config/bash/prompt.sh  # ps1 and 2 prompt
 
 
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
@@ -40,7 +40,7 @@ _cmd_exists zoxide &&\
 
 
 # only call fastfetch if not in nvim
-if _cmd_exists fastfetch && [[ -z "$NVIM" ]]; then
+if [[ -z "$NVIM" ]] && _cmd_exists fastfetch; then
     export STARTUP_TIME=$(( ($(date +%s%N) - $STARTUP_TIME) / 1000000 ))
     fastfetch -c ~/.config/fastfetch/config.jsonc
     unset STARTUP_TIME
