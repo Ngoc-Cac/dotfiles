@@ -5,7 +5,7 @@ GroupAdd "AltTabWindow", "ahk_class TaskSwitcherWnd" ; not sure, some older vers
 ; Alt & l::AltTab
 ; Alt & h::ShiftAltTab
 
-#HotIf WinExist("ahk_group AltTabWindow")
+#HotIf WinActive("ahk_group AltTabWindow")
 h::Left
 l::Right
 j::Down
