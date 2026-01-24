@@ -51,3 +51,10 @@ w::^Right
 b::^Left
 
 #HotIf
+
+Loop Parse, "acefgimnopqrstvxyz"
+{
+    HotIf("HJKLMode.active")
+    Hotkey("~*" . A_LoopField, (*) => HJKLMode.toggle())
+}
+HotIf()
