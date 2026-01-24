@@ -1,13 +1,12 @@
 class HJKLMode
 {
     static active := false
-    ; static paused := false
 
     ; +E0x20 is the non-interactive window thingy
     static overlay_status := Gui("+AlwaysOnTop +ToolWindow -Caption +E0x20")
     static _show_opts := "x" (30) " y" (20) " NoActivate"
 
-    static init_gui()
+    static __New()
     {
         this.overlay_status.BackColor := "343434"
         WinSetTransColor(" 150", this.overlay_status)
@@ -33,11 +32,9 @@ class HJKLMode
     }
     */
 }
-HJKLMode.init_gui()
 
-#HotIf
+
 CapsLock::HJKLMode.toggle()
-#HotIf
 
 #HotIf HJKLMode.active
 ; weird ass scrolling
