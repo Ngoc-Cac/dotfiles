@@ -41,9 +41,13 @@ CapsLock::HJKLMode.toggle()
 d::WheelDown
 u::WheelUp
 
-; just vim stuff
+; vim navigation
 h::Left
 l::Right
 j::Down
 k::Up
+
+w::^Right
+b::^Left
+
 #HotIf
