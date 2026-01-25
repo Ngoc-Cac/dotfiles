@@ -1,3 +1,31 @@
+CapsLock::HJKLMode.toggle()
+
+; any keys not in the hotif directives disables the mode
+Loop Parse, "acefgimnopqrstvxyz"
+{
+    HotIf("HJKLMode.active")
+    Hotkey("~" A_LoopField, (_) => HJKLMode.toggle())
+}
+HotIf()
+
+#HotIf HJKLMode.active
+~Space::HJKLMode.toggle()
+
+; weird ass scrolling because I couldn't make ^d and ^u work
+d::WheelDown
+u::WheelUp
+
+; navigation
+h::Left
+l::Right
+j::Down
+k::Up
+
+w::^Right
+b::^Left
+#HotIf
+
+
 class HJKLMode
 {
     static active := false
@@ -32,29 +60,3 @@ class HJKLMode
     }
     */
 }
-
-
-CapsLock::HJKLMode.toggle()
-
-#HotIf HJKLMode.active
-; weird ass scrolling
-d::WheelDown
-u::WheelUp
-
-; vim navigation
-h::Left
-l::Right
-j::Down
-k::Up
-
-w::^Right
-b::^Left
-
-#HotIf
-
-Loop Parse, "acefgimnopqrstvxyz"
-{
-    HotIf("HJKLMode.active")
-    Hotkey("~*" . A_LoopField, (*) => HJKLMode.toggle())
-}
-HotIf()
