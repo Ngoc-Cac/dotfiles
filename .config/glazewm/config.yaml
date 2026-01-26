@@ -81,12 +81,12 @@ window_rules:
       - window_title: { equals: "Discord" }
       - window_title: { equals: "Cell to Singularity" }
 
-      - window_title: { regex: "PDF Reader" }
+      - window_process: { equals: "SumatraPDF"}
 
       # office stuff
-      - window_process: { equals: 'EXCEL' }
-      - window_process: { equals: 'WINWORD' }
-      - window_process: { equals: 'POWERPNT' }
+      - window_process: { equals: "EXCEL" }
+      - window_process: { equals: "WINWORD" }
+      - window_process: { equals: "POWERPNT" }
 
   # resize the winows correctly at startup
   - commands: ['size --width 1855 --height 965']
