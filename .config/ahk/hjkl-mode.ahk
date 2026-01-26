@@ -1,3 +1,5 @@
+^CapsLock::
++CapsLock::
 CapsLock::HJKLMode.toggle()
 
 ; any keys not in the hotif directives disables the mode
