@@ -6,7 +6,7 @@ CapsLock::HJKLMode.toggle()
 Loop Parse, "acefgimnopqrstvxyz"
 {
     HotIf("HJKLMode.active")
-    Hotkey("~" A_LoopField, (_) => HJKLMode.toggle())
+    Hotkey("~*" A_LoopField, (_) => HJKLMode.toggle())
 }
 HotIf()
 
