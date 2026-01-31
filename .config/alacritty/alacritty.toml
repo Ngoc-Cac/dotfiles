@@ -1,11 +1,10 @@
+#:tombi schema.strict = false
 [general]
-import = [
-    "~/.config/alacritty/themes/gruvbox_dark.toml"
-]
+import = [ "~/.config/alacritty/themes/gruvbox_dark.toml" ]
 working_directory = "D:"
 
 [terminal]
-shell = {program = "E:/Git/bin/bash.exe", args = ["-i", "-l"]}
+shell = { program = "E:/Git/bin/bash.exe", args = ["-i", "-l"] }
 
 [window]
 dimensions = {columns = 180, lines = 42}
