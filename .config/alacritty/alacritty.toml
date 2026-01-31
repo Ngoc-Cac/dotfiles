@@ -16,3 +16,8 @@ blur = true
 
 [font]
 normal = { family = "Consolas Nerd Font Mono", style = "Regular" }
+bold = { family = "Consolas Nerd Font Mono", style = "Bold" }
+
+[cursor]
+style = { shape = "Beam", blinking = "Off" }
+vi_mode_style = { shape = "Block", blinking = "Off" }
