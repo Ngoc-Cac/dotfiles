@@ -18,12 +18,15 @@ _lazy_load() {
 # auto cd when entering dirname
 shopt -s autocd
 
+export GIT_EDITOR=nvim
+export CDPATH='/d/!Projects:/d/!Projects/!Work'
+export HISTFILE=~/logs/bash/.bash_history
+
 # quick command to commit to the bare repo tracking this configuration setup
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 
 # configurations and utilities
-. ~/.config/bash/env.sh
 . ~/.config/bash/aliases.sh
 . ~/.config/bash/functions.sh
 . ~/.config/bash/prompt.sh  # ps1 and 2 prompt
