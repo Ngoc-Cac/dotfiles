@@ -24,6 +24,8 @@ export HISTFILE=~/logs/bash/.bash_history
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dotadd='dotfiles add'
+alias dotcom='dotfiles commit'
 
 
 # configurations and utilities
