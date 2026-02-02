@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/Ngoc-Cac/nvim-config.git
+[submodule ".config/yazi/flavors/gruvbox-material.yazi"]
+	path = .config/yazi/flavors/gruvbox-material.yazi
+	url = https://github.com/matt-dong-123/gruvbox-material.yazi.git
