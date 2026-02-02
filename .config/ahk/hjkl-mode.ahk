@@ -23,10 +23,15 @@ k::Up
 #HotIf
 
 #HotIf HJKLMode.mouse_active
-h::MouseMove(-20, 0, 0, "R")
-l::MouseMove(20, 0, 0, "R")
-j::MouseMove(0, 20, 0, "R")
-k::MouseMove(0, -20, 0, "R")
+$h::MouseMove(-HJKLMode.mouse_incr, 0, 0, "R")
+$l::MouseMove(HJKLMode.mouse_incr, 0, 0, "R")
+$j::MouseMove(0, HJKLMode.mouse_incr, 0, "R")
+$k::MouseMove(0, -HJKLMode.mouse_incr, 0, "R")
+
+^h::MouseMove(-HJKLMode.mouse_big_incr, 0, 0, "R")
+^l::MouseMove(HJKLMode.mouse_big_incr, 0, 0, "R")
+^j::MouseMove(0, HJKLMode.mouse_big_incr, 0, "R")
+^k::MouseMove(0, -HJKLMode.mouse_big_incr, 0, "R")
 
 Space::MouseClick()
 #HotIf
@@ -47,6 +52,8 @@ class HJKLMode
 {
     static active := false
     static mouse_active := false
+    static mouse_incr := 20
+    static mouse_big_incr := 170
 
     ; +E0x20 is the non-interactive window thingy
     static hjkl_overlay := Gui("+AlwaysOnTop +ToolWindow -Caption +E0x20")
@@ -75,7 +82,7 @@ class HJKLMode
         this.mouse_active := !this.mouse_active
         ; change pointer size (pixels) 
         if this.mouse_active
-            DllCall("SystemParametersInfo", "UInt", 0x2029, "UInt", 0, "UInt", 40, "UInt", 0)
+            DllCall("SystemParametersInfo", "UInt", 0x2029, "UInt", 0, "UInt", 50, "UInt", 0)
         else
             DllCall("SystemParametersInfo", "UInt", 0x2029, "UInt", 0, "UInt", 30, "UInt", 0)
     }
