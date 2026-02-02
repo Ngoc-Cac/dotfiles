@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+# _cmd_exists is a utility function in .bashrc
 [[ "$OSTYPE" =~ ^(msys|cygwin) ]] && . ~/.config/bash/aliases_win.sh
 
 ### Listing Commands ###
 # use eza instead of ls if available
-command -v eza > /dev/null && alias ls="eza --icons=auto --group-directories-first --git -h"
+_cmd_exists eza && alias ls="eza --icons=auto --group-directories-first --git -h"
 
 alias ll="ls -l"
 alias la="ls -Al"
@@ -32,6 +33,9 @@ alias gla="gl --all"
 alias vi="nvim"
 alias vim="nvim"
 alias nv="nvim"
+
+### Yazi ###
+_cmd_exists yazi && alias zi="yazi"
 
 ### Misc ###
 alias cl="clear"
