@@ -19,8 +19,10 @@ export PYTHONIOENCODING=utf-8
 export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_SHOWCOLORHINTS=true
 
+PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s")'
+
 PS1="[\[$BLUE\]\u@\h\[$RESET\]] \[$BYELLOW\]󰉋 \w "
-PS1+="\[$MAGENTA\]\$(__git_ps1 \"%s\")"
+PS1+="\[$MAGENTA\]\$_PS1_GIT"
 PS1+=$'\n'"\$(_exit_code_info) ~#@❯\[$RESET\]  "
 
 PS2="  󱞪 "
