@@ -33,7 +33,13 @@ $k::MouseMove(0, -HJKLMode.mouse_incr, 0, "R")
 ^j::MouseMove(0, HJKLMode.mouse_big_incr, 0, "R")
 ^k::MouseMove(0, -HJKLMode.mouse_big_incr, 0, "R")
 
-Space::MouseClick()
++h::MouseMove(-1, 0, 0, "R")
++l::MouseMove(1, 0, 0, "R")
++j::MouseMove(0, 1, 0, "R")
++k::MouseMove(0, -1, 0, "R")
+
+$Space::MouseClick()
+^Space::MouseClick("R")
 #HotIf
 
 #HotIf HJKLMode.active or HJKLMode.mouse_active
