@@ -17,7 +17,10 @@ _exit_code_info() { [[ $? -eq 0 ]] && printf "$GREEN" || printf "$RED"; }
 # parse the ps1 command 
 export PYTHONIOENCODING=utf-8
 export GIT_PS1_SHOWUPSTREAM="verbose"
-export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCONFLICTSTATE=yes
 
 PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s")'
 
