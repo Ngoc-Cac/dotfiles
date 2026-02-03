@@ -15,12 +15,8 @@ _lazy_load() {
     }"
 }
 
-# auto cd when entering dirname
-shopt -s autocd
-
-export GIT_EDITOR=nvim
-export CDPATH='/d/!Projects:/d/!Projects/!Work'
-export HISTFILE=~/logs/bash/.bash_history
+shopt -s autocd  # auto cd when entering dirname
+shopt -s cdspell  # autocorrect path name
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
