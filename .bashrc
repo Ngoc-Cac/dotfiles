@@ -9,9 +9,7 @@ _lazy_load() {
     # unset the load fn first, then init the cmd
     # and run it with given args 
     eval "$cmd_name() {
-        unset -f $cmd_name
-        eval \"\$($init_cmd)\"
-        $cmd_name \"\$@\"
+        unset -f $cmd_name; eval \"\$($init_cmd)\"; $cmd_name \"\$@\"
     }"
 }
 
