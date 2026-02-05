@@ -1,3 +1,6 @@
+# safe-guard for non-interactive sess
+[[ $- != *i* ]] && return
+
 # the get the start time in terms of nanosecs
 STARTUP_TIME=$(date +%s%N)
 
