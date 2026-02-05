@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-  "logo": { "source": "windows" },
+  "logo": { "source": "arch2" },
   "modules": [
     "title",
     "separator",
@@ -8,7 +8,7 @@
     {
         "type": "command",
         "key": "Startup Time",
-        "text": "echo %STARTUP_TIME% ms"
+        "text": "echo $STARTUP_TIME ms"
     },
     "uptime", "packages",
     // "os", "host",
