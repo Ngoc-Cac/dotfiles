@@ -11,21 +11,21 @@ YELLOW="\033[33m"
 RESET="\033[0m"
 BOLD="\033[1m"
 
-_exit_code_info() { [[ $? -eq 0 ]] && printf "$GREEN" || printf "$RED"; }
+# \001 and \002 is equivalent to \[ \]
+_exit_code_info() { [[ $? -eq 0 ]] && printf "\001$GREEN\002" || printf "\001$RED\002"; }
 
 # if not set, conda will throw error because it can't
 # parse the ps1 command 
 export PYTHONIOENCODING=utf-8
 export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_SHOWCOLORHINTS=1
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
+# export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCONFLICTSTATE=yes
 
-PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s")'
+PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s"); _EXIT_CODE_SYMBOL=$(_exit_code_info)'
 
 PS1="[\[$BLUE\]\u@\h\[$RESET\]] \[$BYELLOW\]󰉋 \w "
 PS1+="\[$MAGENTA\]\$_PS1_GIT"
-PS1+=$'\n'"\$(_exit_code_info) ~#@❯\[$RESET\]  "
+PS1+=$'\n'"\$_EXIT_CODE_SYMBOL ~#@❯\[$RESET\]  "
 
 PS2="  󱞪 "
