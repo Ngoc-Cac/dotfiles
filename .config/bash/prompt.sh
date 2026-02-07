@@ -10,7 +10,7 @@ GRAY="\033[90m"
 RESET="\033[0m"
 
 # \001 and \002 is equivalent to \[ \]
-_exit_code_info() { [[ $? -eq 0 ]] && printf "\001$GREEN\002" || printf "\001$RED\002"; }
+_exit_code_info() { [[ $? -eq 0 ]] && printf "\001$GREEN\002" || printf "\001$RED\002"; }
 
 # if not set, conda will throw error because it can't
 # parse the ps1 command 
