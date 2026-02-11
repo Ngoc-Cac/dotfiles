@@ -7,11 +7,14 @@ _lazy_load() {
     local init_cmd="$2"
 
     # unset the load fn first, then init the cmd
-    # and run it with given args 
+    # and run it with given args
     eval "$cmd_name() {
         unset -f $cmd_name; eval \"\$($init_cmd)\"; $cmd_name \"\$@\"
     }"
 }
+
+# cache directory for some eval commands
+[[ ! -d ~/.config/.cache ]] && mkdir ~/.config/.cache
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
@@ -30,12 +33,13 @@ alias dotcom='dotfiles commit'
 
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
-# wizardry lazy loading, for fzf, this means no c-r and alt-c tho 
-_cmd_exists fzf &&\
-    _lazy_load __fzf_select__ "fzf --bash" &&\
-    bind -x '"\C-t": __fzf_select__ '
-_cmd_exists zoxide &&\
-    _lazy_load go "zoxide init bash --cmd go"
+if _cmd_exists fzf; then
+    [[ ! -f ~/.config/.cache/fzf.sh ]] && fzf --bash > ~/.config/.cache/fzf.sh
+    source ~/.config/.cache/fzf.sh
+fi
+
+# wizardry lazy loading, for fzf, this means no c-r and alt-c tho
+_cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
 
 
 # only call fastfetch if not in nvim
