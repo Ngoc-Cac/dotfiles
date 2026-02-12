@@ -4,3 +4,6 @@
 # directories need to be surrounded by // 
 !.gitignore
 !/.config/
+
+# don't exclude this though
+.config/.cache
