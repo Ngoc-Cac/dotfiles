@@ -8,8 +8,8 @@ If no path was given, an environment named '.venv' will be
 activated instead, if it exists.
 
 Usage:
-  venv_act [path_to_venv]
-  venv_act -h | --help
+  venv-act [path_to_venv]
+  venv-act -h | --help
 
 Arguments:
   path_to_venv    Optional. Path to your Python virtual environment.
@@ -54,4 +54,45 @@ EOF
     fi
 
     . "$venv_path/Scripts/activate"
+}
+
+live-latex() {
+    local opts
+    if [[ $1 == "-h" || $1 == "--help" ]]; then
+        cat << EOF
+Run latexmk with live preview (-pvc)
+
+Usage:
+  live-latex filename [outfile] [outdir]
+  live-latex -h | --help
+
+Arguments:
+  filename   The name of the input file to compile
+  outflie    The name of the output file. If not given, the name of the
+                input file is used.
+  outdir     The name of the output directory. If not given, the compilation
+                results are output to the current directory
+
+Options:
+    -h,  --help    Show this help message.
+EOF
+        return 0
+    fi
+
+    if [[ $# -eq 0 ]]; then
+        echo "Error: Expected at least 1 arguments, but received $#!"
+        return 1
+    elif [[ $# -gt 3 ]]; then
+        echo "Error: Expected at most 3 arguments, but received $#!"
+        return 1
+    fi
+
+    [[ $# -eq 2 ]] && opts+="-jobname='$2' "
+
+    if [[ $# -eq 3 ]]; then
+        [[ ! -d $3 ]] && mkdir "'$3'"
+        opts+="-outdir='$3'"
+    fi
+
+    latexmk -pvc -pdf $opts $1
 }
