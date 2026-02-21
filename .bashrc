@@ -20,9 +20,9 @@ shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
 
 # quick command to commit to the bare repo tracking this configuration setup
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias dotadd='dotfiles add'
-alias dotcom='dotfiles commit'
+alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dotadd='dot add'
+alias dotcom='dot commit'
 
 
 # configurations and utilities
