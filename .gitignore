@@ -4,6 +4,11 @@
 # directories need to be surrounded by // 
 !.gitignore
 !/.config/
+!.gitconfig
+
+!.bashrc
+!.bash_profile
+!.inputrc
 
 # don't exclude this though
 .config/.cache
