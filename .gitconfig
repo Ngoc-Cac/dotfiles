@@ -1,0 +1,18 @@
+[core]
+	autocrlf = true
+	symlinks = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[lfs]
+	batch = true
+[user]
+	name = Trịnh Ngọc Các
+	email = cactrinh5@gmail.com
+[alias]
+    st = status
+    br = branch
+    com = commit
+    unstage = restore --staged
