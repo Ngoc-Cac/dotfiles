@@ -87,7 +87,7 @@ EOF
         return 1
     fi
 
-    [[ $# -eq 2 ]] && opts+="-jobname='$2' "
+    [[ $# -ge 2 ]] && opts+="-jobname='$2' "
 
     if [[ $# -eq 3 ]]; then
         [[ ! -d $3 ]] && mkdir "'$3'"
