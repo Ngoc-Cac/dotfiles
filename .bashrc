@@ -37,10 +37,9 @@ alias dotcom='dot commit'
 
 if _cmd_exists fzf; then
     [[ ! -f ~/.config/.cache/fzf.sh ]] && fzf --bash > ~/.config/.cache/fzf.sh
-    source ~/.config/.cache/fzf.sh
+    . ~/.config/.cache/fzf.sh
 fi
 
-# wizardry lazy loading, for fzf, this means no c-r and alt-c tho
 _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
 
 
