@@ -21,7 +21,6 @@ alias cp="cp -vi"
 
 # verbose by default cause I'm anxious
 alias rm="rm -v"
-alias rv="rm"
 
 ### Git Commands ###
 alias gs="git status"
@@ -43,3 +42,4 @@ alias conda-act=". ~/miniconda3/Scripts/activate"
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
