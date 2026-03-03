@@ -18,6 +18,8 @@ _lazy_load() {
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
+shopt -s no_empty_cmd_completion
+
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
