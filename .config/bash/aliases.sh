@@ -39,6 +39,8 @@ _cmd_exists yazi && alias zi="yazi"
 ### Misc ###
 alias cl="clear"
 alias conda-act=". ~/miniconda3/Scripts/activate"
+alias ipython="python -m IPython"
+alias pyi="python -m IPython --profile=ds"
 
 alias ..="cd .."
 alias ...="cd ../.."
