@@ -10,6 +10,7 @@ c.InteractiveShellApp.exec_lines = [
     "import matplotlib.pyplot as plt",
 ]
 
+c.TerminalInteractiveShell.editing_mode = 'vi'
 c.TerminalInteractiveShell.enable_tip = False
 c.TerminalInteractiveShell.term_title = False
 

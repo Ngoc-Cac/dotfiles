@@ -4,6 +4,7 @@ eza =  "eza --icons=auto --group-directories-first --git -h"
 
 c = get_config()  #noqa
 
+c.TerminalInteractiveShell.editing_mode = 'vi'
 c.TerminalInteractiveShell.enable_tip = False
 c.TerminalInteractiveShell.term_title = False
 
