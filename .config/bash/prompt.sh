@@ -23,7 +23,7 @@ export GIT_PS1_SHOWCONFLICTSTATE=yes
 PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s"); _EXIT_CODE_SYMBOL=$(_exit_code_info)'
 
 PS1="[\[$BLUE\]\u@\h\[$RESET\]] \[$YELLOW\]󰉋 \w "
-PS1+="\[$MAGENTA\]\$_PS1_GIT"
-PS1+=$'\n'"\$_EXIT_CODE_SYMBOL \[$GRAY\]~#@❯\[$RESET\]  "
+PS1+="\[$MAGENTA\]\$_PS1_GIT\[$RESET\]"
+PS1+=$'\n'"\$_EXIT_CODE_SYMBOL\[$RESET\]  "
 
 PS2="  󱞪 "
