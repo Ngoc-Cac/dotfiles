@@ -6,3 +6,16 @@ set show-all-if-ambiguous on
 
 set colored-stats on
 set visible-stats on
+
+### VI mode ###
+set editing-mode vi
+set keyseq-timeout 50
+
+set show-mode-in-prompt on
+# q is DECSCUSR, 2 is steady block and 0 is terminal default
+# see https://ghostty.org/docs/vt/csi/decscusr
+set vi-cmd-mode-string "(\1\033[33m\2cmd\1\033[0m\2) \1\033[2 q\2"
+set vi-ins-mode-string "(\1\033[32m\2ins\1\033[0m\2) \1\033[0 q\2"
+
+"jk": vi-movement-mode
+"kj": vi-movement-mode
