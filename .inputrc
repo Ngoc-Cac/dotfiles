@@ -1,9 +1,13 @@
 set bell-style none
+
+# completion configuration
+set completion-query-items 50
 set completion-ignore-case on
 
 # immediately list possible completions when ambiguous 
 set show-all-if-ambiguous on
 
+set colored-completion-prefix on
 set colored-stats on
 set visible-stats on
 
