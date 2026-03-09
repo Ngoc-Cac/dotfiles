@@ -12,6 +12,7 @@
 	name = Trịnh Ngọc Các
 	email = cactrinh5@gmail.com
 [alias]
+    ai = add -i
     st = status
     br = branch
     com = commit
