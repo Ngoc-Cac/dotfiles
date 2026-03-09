@@ -23,8 +23,6 @@ shopt -s no_empty_cmd_completion
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias dotadd='dot add'
-alias dotcom='dot commit'
 
 
 # configurations and utilities
