@@ -87,7 +87,7 @@ EOF
         return 1
     fi
 
-    [[ $# -eq 2 ]] && opts+="-outdir='$2' "
-    [[ $# -ge 3 ]] && opts+="-jobname='$3'"
+    [[ $# -ge 2 ]] && opts+="-outdir='$2' "
+    [[ $# -eq 3 ]] && opts+="-jobname='$3'"
     latexmk -pvc -pdf $opts $1
 }
