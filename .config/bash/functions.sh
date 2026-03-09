@@ -63,15 +63,15 @@ live-latex() {
 Run latexmk with live preview (-pvc)
 
 Usage:
-  live-latex filename [outfile] [outdir]
+  live-latex filename [outdir] [outfile]
   live-latex -h | --help
 
 Arguments:
   filename   The name of the input file to compile
-  outflie    The name of the output file. If not given, the name of the
-                input file is used.
   outdir     The name of the output directory. If not given, the compilation
                 results are output to the current directory
+  outflie    The name of the output file. If not given, the name of the
+                input file is used.
 
 Options:
     -h,  --help    Show this help message.
@@ -87,12 +87,7 @@ EOF
         return 1
     fi
 
-    [[ $# -ge 2 ]] && opts+="-jobname='$2' "
-
-    if [[ $# -eq 3 ]]; then
-        [[ ! -d $3 ]] && mkdir "'$3'"
-        opts+="-outdir='$3'"
-    fi
-
+    [[ $# -eq 2 ]] && opts+="-outdir='$2' "
+    [[ $# -ge 3 ]] && opts+="-jobname='$3'"
     latexmk -pvc -pdf $opts $1
 }
