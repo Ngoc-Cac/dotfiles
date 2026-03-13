@@ -25,7 +25,7 @@ alias rm="rm -v"
 ### Git Commands ###
 alias gs="git status"
 alias gc="git commit"
-alias gl="git log --graph --oneline"
+alias gl="git ll"
 alias gla="gl --all"
 
 ### Neovim ###
