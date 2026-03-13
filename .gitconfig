@@ -13,7 +13,11 @@
 	email = cactrinh5@gmail.com
 [alias]
     ai = add -i
-    st = status
     br = branch
     com = commit
+    ll = log --graph --oneline
+    rbi = rebase -i
+    st = status
     unstage = restore --staged
+[http]
+	sslcainfo = E:/Git/mingw64/etc/ssl/certs/ca-bundle.crt
