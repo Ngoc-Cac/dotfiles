@@ -2,11 +2,11 @@
 
 eza =  "eza --icons=auto --group-directories-first --git -h"
 
-c = get_config()  #noqa
+c = get_config()  # pyright: ignore
 
 c.TerminalInteractiveShell.editing_mode = 'vi'
 c.TerminalInteractiveShell.term_title = False
-if hasattr(c.TerminalInteractiveShellm, "enable_tip"):
+if hasattr(c.TerminalInteractiveShell, "enable_tip"):
     c.TerminalInteractiveShell.enable_tip = False
 
 c.AliasManager.user_aliases = [
