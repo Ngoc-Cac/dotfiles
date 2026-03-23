@@ -19,5 +19,6 @@
     rbi = rebase -i
     st = status
     unstage = restore --staged
+    wt = worktree
 [http]
 	sslcainfo = E:/Git/mingw64/etc/ssl/certs/ca-bundle.crt
