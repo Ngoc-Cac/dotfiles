@@ -15,6 +15,7 @@
     ai = add -i
     br = branch
     com = commit
+    cam = commit --amend
     ll = log --graph --oneline
     rbi = rebase -i
     st = status
