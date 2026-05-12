@@ -1,22 +1,32 @@
 #:tombi schema.strict = false
 [general]
-import = [ "~/.config/alacritty/themes/gruvbox_dark.toml" ]
+import = [
+    "~/.config/alacritty/themes/srcery.toml",
+    # "~/.config/alacritty/themes/gruvbox-dark-hard-contrast.toml",
+    # "~/.config/alacritty/themes/gotham.toml",
+    # "~/.config/alacritty/themes/flexoki_dark.toml",
+]
 working_directory = "D:"
 
 [terminal]
 shell = { program = "E:/Git/bin/bash.exe", args = ["-i", "-l"] }
 
 [window]
-dimensions = {columns = 180, lines = 42}
-position = {x = 45, y = 35}
-padding = {x = 5, y = 10}
+decorations = "none"
+dimensions = { columns = 185, lines = 42 }
+position = { x = 22, y = 20 }
+padding = { x = 5, y = 10 }
 opacity = 0.97
 blur = true
 
 [font]
 normal = { family = "Consolas Nerd Font Mono", style = "Regular" }
 bold = { family = "Consolas Nerd Font Mono", style = "Bold" }
+size = 12
 
 [cursor]
 style = { shape = "Beam", blinking = "Off" }
 vi_mode_style = { shape = "Block", blinking = "Off" }
+
+[mouse]
+hide_when_typing = true
