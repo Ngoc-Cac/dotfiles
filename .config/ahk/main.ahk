@@ -8,11 +8,12 @@
 ; #Space::return
 #Space::
 {
-    if WinExist("ahk_exe WindowsTerminal.exe")
+    ; WindowsTerminal.exe 
+    if WinExist("ahk_exe alacritty.exe")
         WinActivate
 }
 
-!Enter::Run "wt.exe"
+!Enter::Run "alacritty.exe"  ; "wt.exe"
 !g::Run "glazewm.exe"
 
 ; alt + q to close window
