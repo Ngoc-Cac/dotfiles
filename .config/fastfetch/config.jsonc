@@ -1,45 +1,89 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-  "logo": { "source": "windows" },
-  "modules": [
-    "title",
-    "separator",
-
-    {
-        "type": "command",
-        "key": "Startup Time",
-        "text": "echo %STARTUP_TIME% ms"
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+    "logo": {
+        "source": "windows",
+        "padding": { "top": 1 }
     },
-    "uptime", "packages",
-    // "os", "host",
-    "break",
+    "display": {
+        "separator": "",
+        "constants": [
+            "\u001b[56C",  // $1: Move cursor forward, D will move backwards
+            "╰────────────────────────────────────────────────────────────────────╯"
+            ],
+        "key": { "width": 14 }  // set the width of all key
+    },
+    "modules": [
+        // #90 means \u001b[90m
+        {
+            "type": "custom",
+            "format": "╭──────────────────────────────  Info  ──────────────────────────────╮",
+            "outputColor": "33"
+        },
+        {
+            "type": "os",
+            "key": "{#33}│        {#34}OS:{$1} {#33}│"
+        },
+        {
+            "type": "host",
+            "key": "{#33}│      {#34}Host:{$1} {#33}│"
+        },
+        {
+            "type": "title",
+            "key": "{#33}│      {#34}User:{$1} {#33}│"
+        },
+        {
+            "type": "packages",
+            "key": "{#33}│  {#34}Packages:{$1} {#33}│"
+        },
+        {
+            "type": "uptime",
+            "key": "{#33}│    {#34}Uptime:{$1} {#33}│"
+        },
+        {
+            "type": "command",
+            "key": "{#33}│   {#34}Startup:{$1} {#33}│",
+            "text": "echo %STARTUP_TIME% ms"
+        },
+        {
+            "type": "custom",
+            "format": "{$2}",
+            "outputColor": "33"
+        },
 
-    // "cpu", "gpu",
-    // "break",
+        {
+            "type": "custom",
+            "format": "╭────────────────────────────  Hardware  ────────────────────────────╮",
+            "outputColor": "33"
+        },
+        {
+            "type": "cpu",
+            "key": "{#33}│       {#34}CPU:{$1} {#33}│",
+            "showPeCoreCount": true
+        },
+        // {
+        //     "type": "gpu",
+        //     "key": "{#33}│       {#34}GPU:{$1} {#33}│"
+        // },
+        {
+            "type": "memory",
+            "key": "{#33}│    {#36}Memory:{$1} {#33}│"
+        },
+        {
+            "type": "disk",
+            "key": "{#33}│      {#32}Disk:{$1} {#33}│"
+        },
+        {
+            "type": "custom",
+            "format": "{$2}",
+            "outputColor": "33"
+        },
 
-    "memory", "disk",
-    "break",
-
-    "terminalfont",
-    "terminaltheme",
-    "colors"
-    
-    // "kernel",
-    // "shell",
-    // "display",
-    // "de",
-    // "wm",
-    // "wmtheme",
-    // "theme",
-    // "icons",
-    // "font",
-    // "cursor",
-    // "terminal",
-    // "swap",
-    // "localip",
-    // "battery",
-    // "poweradapter",
-    // "locale",
-    // "break",
-  ]
+        {
+            "type": "terminalfont",
+            "key": "Terminal Font:",
+            "keyWidth": 16
+        },
+        // "terminaltheme",
+        "colors"
+    ]
 }
