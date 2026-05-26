@@ -13,11 +13,11 @@ Usage:
 
 Arguments:
   path_to_venv    Optional. Path to your Python virtual environment.
-                      If not given, this will find a virtual environment
-                      named '.venv' in your current directory and activate it.
+                    If not given, this will find a virtual environment
+                    named '.venv' in your current directory and activate it.
 
 Options:
-    -h,  --help    Show this help message.
+  -h,  --help     Show this help message.
 EOF
         return 0
     fi
