@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. /usr/share/git/completion/git-prompt.sh
 
 BLUE="\033[34m"
 GREEN="\033[32m"
