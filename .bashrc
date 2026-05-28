@@ -1,3 +1,6 @@
+# guard clause again non-interactive sessions
+[[ $- != *i* ]] && return
+
 # the get the start time in terms of nanosecs
 STARTUP_TIME=$(date +%s%N)
 

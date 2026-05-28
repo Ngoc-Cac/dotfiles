@@ -1,6 +1,7 @@
 [core]
-	autocrlf = true
+	autocrlf = input
 	symlinks = true
+    editor = nvim
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -21,5 +22,9 @@
     st = status
     unstage = restore --staged
     wt = worktree
-[http]
-	sslcainfo = E:/Git/mingw64/etc/ssl/certs/ca-bundle.crt
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
