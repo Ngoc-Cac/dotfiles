@@ -9,6 +9,7 @@ TERM tmux-direct
 TERM screen-256color
 TERM xterm-256color
 TERM xterm-direct
+TERM xterm-kitty
 
 #+-----------------+
 #+ Global Defaults +

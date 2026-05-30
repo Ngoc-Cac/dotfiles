@@ -1,5 +1,5 @@
-export TERM='xterm-direct'
+export VISUAL=nvim
 export EDITOR=nvim
-export HISTFILE=~/logs/bash/.bash_history
+export HISTFILE=~/.bash_history
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
