@@ -23,3 +23,7 @@ require("binds.audio")
 
 -- navigation
 require("binds.layouts")
+
+
+-- MISC
+require("binds.hjkl_mode")
