@@ -3,18 +3,20 @@ local main_mod = CONFIG["main_mod"]
 
 
 -- shutdown app and hyprland
-hl.bind(main_mod .. " + C", hl.dsp.window.close())
-hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(main_mod .. " + q", hl.dsp.window.close())
+hl.bind(main_mod .. " + m", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 
 -- apps and stuff
-hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(CONFIG["terminal"]))
-hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(CONFIG["file_manager"]))
-hl.bind(main_mod .. " + R", hl.dsp.exec_cmd(CONFIG["launcher"]))
+hl.bind(main_mod .. " + t", hl.dsp.exec_cmd(CONFIG["terminal"]))
+hl.bind(main_mod .. " + f", hl.dsp.exec_cmd(CONFIG["file_manager"]))
+hl.bind(main_mod .. " + r", hl.dsp.exec_cmd(CONFIG["launcher"]))
+hl.bind(main_mod .. " + b", hl.dsp.exec_cmd(CONFIG["browser"]))
+hl.bind(main_mod .. " + y", hl.dsp.exec_cmd(CONFIG["browser"] .. " --app=https://music.youtube.com/"))
 
 
 -- screenshot
-hl.bind(main_mod .. "+ SHIFT + S", hl.dsp.exec_cmd("grimblast copy area"))
+hl.bind(main_mod .. "+ SHIFT + s", hl.dsp.exec_cmd("grimblast copy area"))
 
 
 -- audio controls

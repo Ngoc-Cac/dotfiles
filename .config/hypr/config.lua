@@ -1,6 +1,7 @@
 return {
   main_mod     = "SUPER",
+  launcher     = "hyprlauncher",
   terminal     = "kitty",
   file_manager = "dolphin",
-  launcher         = "hyprlauncher"
+  browser      = "brave --ozone-platform=wayland"
 }
