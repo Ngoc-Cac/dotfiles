@@ -16,8 +16,14 @@ hl.bind(main_mod .. "+ ALT + k",     hl.dsp.focus({ direction = "up" }))
 hl.bind(main_mod .. "+ ALT + j",     hl.dsp.focus({ direction = "down" }))
 
 -- navigating workspaces
+hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(main_mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 for i = 1, 10 do
   local key = i % 10
   hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
   hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+
+-- Move/resize windows with clik and drag
+hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
