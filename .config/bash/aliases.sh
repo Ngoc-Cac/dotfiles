@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # _cmd_exists is a utility function in .bashrc
-[[ "$OSTYPE" =~ ^(msys|cygwin) ]] && . ~/.config/bash/aliases_win.sh
 
 ### Listing Commands ###
 # use eza instead of ls if available
@@ -38,6 +37,7 @@ _cmd_exists yazi && alias zi="yazi"
 
 ### Misc ###
 alias cl="clear"
+alias start="xdg-open"
 alias conda-act=". ~/miniconda3/Scripts/activate"
 alias ipython="python -m IPython"
 alias pyi="python -m IPython --profile=ds"
