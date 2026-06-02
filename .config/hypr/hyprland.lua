@@ -20,8 +20,60 @@ end)
 
 hl.config({
   general = {
-    no_focus_fallback = true
-  }
+    col = {
+      active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+      inactive_border = "rgba(595959aa)",
+    },
+    no_focus_fallback = true,  -- no wrapping basically
+
+    resize_on_border = true,  -- resize by clicking and dargging
+    border_size = 2,
+  },
+
+  decoration = {
+    rounding = 5,
+    rounding_power = 2,
+
+    active_opacity = 1.0,
+    inactive_opacity = 0.8,
+
+    blur = {
+      enabled = true,
+      size = 3,
+      passes = 1,
+      vibrancy = 0.1696,
+    },
+  },
+
+  dwindle = { force_split = 2 }
+})
+
+
+-- hl.monitor({
+--     output   = "",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = "auto"
+-- })
+
+
+hl.workspace_rule({
+  workspace = "1",
+  persistent = true,
+  default_name = "Terminals"
+})
+
+hl.workspace_rule({
+  workspace = "2",
+  persistent = true,
+  layout = "monocle",
+  default_name = "Browser"
+})
+
+hl.workspace_rule({
+  workspace = "3",
+  persistent = true,
+  default_name = "Media"
 })
 
 
