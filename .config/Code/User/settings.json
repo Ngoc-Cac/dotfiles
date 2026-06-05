@@ -1,0 +1,82 @@
+{
+    "workbench.activityBar.location": "top",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.tokenColorCustomizations": {
+        "[Monokai Dimmed]": {
+            "types":"#54ca0fde",
+            "variables": "#4dfcff",
+            "comments": "#117233"
+        },
+        "[Monokai]": {
+            // "types":"#54ca0fde",
+            "variables": "#d6d6d6",
+            // "comments": "#117233"
+        }
+    },
+
+    "workbench.preferredDarkColorTheme": "Dark+",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.tree.expandMode": "doubleClick",
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.editor.autoLockGroups": {
+        "terminalEditor": false
+    },
+    "window.autoDetectHighContrast": false,
+    "jupyter.askForKernelRestart": false,
+    "python.terminal.activateEnvironment": false,
+    "editor.detectIndentation": false,
+    "workbench.editorAssociations": {
+        "*.xls": "default"
+    },
+    "window.newWindowProfile": "Default",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "notebook.output.wordWrap": true,
+    "editor.defaultColorDecorators": "always",
+    "python.createEnvironment.trigger": "off",
+    "files.associations": {
+        "*.qss": "css"
+    },
+    "[css]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "workbench.startupEditor": "none",
+    "autoDocstring.docstringFormat": "sphinx",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "remote.portsAttributes": {
+        "8000": {
+            "protocol": "http"
+        }
+    },
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.commandsToSkipShell": [
+        "matlab.interrupt"
+    ],
+    "workbench.editor.empty.hint": "hidden",
+    "terminal.integrated.suggest.enabled": false,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "python.languageServer": "Pylance",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "vscode-neovim.compositeKeys": {
+        "jj": { "command": "vscode-neovim.escape" },
+        "jk": { "command": "vscode-neovim.escape" },
+        "kj": { "command": "vscode-neovim.escape" },
+    },
+    "editor.lineNumbers": "relative",
+    "search.showLineNumbers": true,
+    "notebook.lineNumbers": "on",
+    "python.defaultInterpreterPath": "/home/cactr/Projects/denoise-vdt/.venv",
+}
