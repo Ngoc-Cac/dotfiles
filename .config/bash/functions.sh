@@ -47,13 +47,13 @@ EOF
             echo "Error: Cannot find venv at '$venv_path'!"
         fi
         return 1
-    elif [[ ! -f "$venv_path/Scripts/activate" ]]; then
+    elif [[ ! -f "$venv_path/bin/activate" ]]; then
         echo "Error: '$venv_path' is not a Python virtual environment!"
         echo "Please make sure your path is correct"
         return 1
     fi
 
-    . "$venv_path/Scripts/activate"
+    . "$venv_path/bin/activate"
 }
 
 live-latex() {
