@@ -12,6 +12,8 @@
 [user]
 	name = Trịnh Ngọc Các
 	email = cactrinh5@gmail.com
+[init]
+	defaultBranch = main
 [alias]
     ai = add -i
     br = branch
@@ -22,9 +24,3 @@
     st = status
     unstage = restore --staged
     wt = worktree
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
