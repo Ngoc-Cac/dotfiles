@@ -1,4 +1,5 @@
 {
+    "reload_style_on_change": true,
     "height": 30,
     "spacing": 4,
     "modules-left": [
@@ -14,7 +15,8 @@
         "idle_inhibitor",
         "tray",
         "network",
-        "pulseaudio",
+        "pulseaudio#output",
+        "pulseaudio#input",
 
         "memory",
         "cpu",
@@ -79,23 +81,26 @@
     },
 
 
-    "pulseaudio": {
-        "format": "{volume}% {icon}  {format_source}",
-        "format-bluetooth": "{volume}%  {format_source}",
-        "format-bluetooth-muted": " {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+    "pulseaudio#output": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-bluetooth": "{volume}% ",
+        "format-bluetooth-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "󰂑",
             "headset": "󰂑",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "pulseaudio#input": {
+        "format": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": " ",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "pavucontrol --tab=4"
     },
     "network": {
         "format-wifi": "   {signalStrength}%",
@@ -132,8 +137,8 @@
         "format": "{used:0.1f} / {total:0.1f} GiB"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input",
+        "warning-threshold": 70,
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
