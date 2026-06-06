@@ -1,0 +1,32 @@
+#memory,
+#disk,
+#cpu,
+#temperature {
+  margin-top: 6px;
+  padding-left: 10px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  background: #282828;
+}
+
+
+#cpu,
+#temperature {
+  color: #b8bb26;
+}
+
+#temperature.warning {
+  background: #fe8019;
+  color: #282828;
+}
+
+#temperature.critical {
+  background: #fb4934;
+  color: #282828;
+}
+
+#memory {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #fabd2f;
+}

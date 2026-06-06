@@ -1,0 +1,53 @@
+#keyboard-state,
+#pulseaudio,
+#network {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  background: #282828;
+}
+
+
+#network {
+  color: #fb4934;
+}
+
+#network.disconnected {
+  color: #161320;
+  background: #fb4934;
+}
+
+
+#pulseaudio {
+  color: #89dceb;
+}
+#pulseaudio.input {
+  margin-left: 0px;
+}
+#pulseaudio.output {
+  margin-right: 0px;
+}
+#pulseaudio.muted {
+  color: #b5e8e0;
+  background: #1c4230;
+}
+#pulseaudio:hover {
+  color: #a37800;
+}
+
+
+#keyboard-state {
+  color: #97e1ad;
+  padding-left: 5;
+}
+
+#keyboard-state > label {
+  padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+  border-radius: 0;
+  background: grey;
+}

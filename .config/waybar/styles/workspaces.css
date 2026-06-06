@@ -1,0 +1,29 @@
+#workspaces {
+  margin-top: 6px;
+  margin-left: 12px;
+  font-size: 20px;
+  margin-bottom: 0px;
+  border-style: solid;
+  background: #282828;
+}
+
+#workspaces button {
+  background: transparent;
+  color: #fbf1c7;
+}
+
+#workspaces button:not(.active):hover {
+  box-shadow: inset 0 -1px white;
+  text-shadow: inherit;
+  color: #d65d0e;
+  border-color: #d65d0e;
+}
+
+#workspaces button.focused, #workspaces button.active {
+  background-color: #fe8019;
+  color: black;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
