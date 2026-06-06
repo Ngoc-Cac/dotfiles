@@ -57,24 +57,6 @@ hl.config({
 -- })
 
 
-hl.workspace_rule({
-  workspace = "1",
-  persistent = true,
-  default_name = "Terminals"
-})
-
-hl.workspace_rule({
-  workspace = "2",
-  persistent = true,
-  layout = "monocle",
-  default_name = "Browser"
-})
-
-hl.workspace_rule({
-  workspace = "3",
-  persistent = true,
-  default_name = "Media"
-})
-
+require("win_rules")
 
 require("binds")
