@@ -4,3 +4,6 @@
 [submodule ".config/yazi/flavors/gruvbox-material.yazi"]
 	path = .config/yazi/flavors/gruvbox-material.yazi
 	url = https://github.com/matt-dong-123/gruvbox-material.yazi.git
+[submodule ".password-store"]
+	path = .password-store
+	url = ssh://git@codeberg.org/Ngoc-Cac/pass-storage.git
