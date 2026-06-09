@@ -1,18 +1,17 @@
 {
-    "reload_style_on_change": false,
-    "height": 30,
+    // "reload_style_on_change": true,
+    "height": 20,
     "spacing": 4,
     "modules-left": [
         "custom/power",
-        "keyboard-state",
+        // "keyboard-state",
 
         "hyprland/workspaces",
-        "hyprland/submap",
         "mpris"
     ],
-    "modules-center": [ "clock" ],
+    "modules-center": [ "idle_inhibitor", "clock" ],
     "modules-right": [
-        "idle_inhibitor",
+        "hyprland/submap",
         "tray",
         "network",
         "pulseaudio#output",
@@ -41,16 +40,16 @@
         "disable-scroll": false,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{icon}{windows}{name}",
+        "format": "{icon}{windows} {name}",
         "format-icons": {
-            "urgent": "",
-            "focused": "",
+            "urgent": " ",
+            "focused": " ",
             "default": ""
         },
         "workspace-taskbar": {
             "enable": true,
             "update-active-window": false,
-            "format": "{icon} ",
+            "format": "{icon}",
             "icon-size": 20
         }
     },
@@ -58,10 +57,10 @@
 
     "mpris": {
         "interval": 1,
-        "format": "{player_icon} {dynamic}",
+        "format": "{player_icon}{dynamic}",
         "format-paused": "{status_icon} {dynamic}",
 
-        "max-length": 60,
+        "max-length": 70,
         "dynamic-order": ["artist", "title", "album", "position"],
         "dynamic-importance-order": ["title", "artist", "album", "position", "length"],
         "ellipsis": "...",
@@ -84,7 +83,7 @@
     },
     "idle_inhibitor": {  // when activated, screen won't sleep
         "format": "{icon}",
-        "format-icons": { "activated": "", "deactivated": "" }
+        "format-icons": { "activated": " ", "deactivated": " " }
     },
     "tray": {
         "icon-size": 21,
@@ -103,20 +102,20 @@
     "pulseaudio#output": {
         "format": "{volume}% {icon}",
         "format-muted": "",
-        "format-bluetooth": "{volume}% ",
+        "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
+            "headset": " ",
             "hands-free": "󰂑",
-            "headset": "󰂑",
-            "default": ["", "", ""]
+            "default": [ " ", " ", "" ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol"
     },
     "network": {
-        "format-wifi": "   {signalStrength}%",
-        "format-disconnected": "  ⚠",
+        "format-wifi": "{signalStrength}%  ",
+        "format-disconnected": "⚠ ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{essid}: {ifname} via {gwaddr}"
     },
@@ -125,12 +124,12 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{icon} {name}",
         "format-icons": { "locked": "", "unlocked": "" }
     },
 
 
-    "cpu": { "format": "  {usage}%" },
+    "cpu": { "format": " {usage}%" },
     "memory": { "format": "{used:0.1f} / {total:0.1f} GiB" },
     "temperature": {
         "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",

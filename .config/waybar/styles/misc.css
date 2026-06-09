@@ -8,27 +8,22 @@
   margin-bottom: 0px;
 }
 
+#idle_inhibitor,
 #clock {
   color: #abe9b3;
   background: #282828;
 }
 
 
-#idle_inhibitor {
-  margin-right: 0px;
-  padding: 0 15px 0 10px;
-  background-color: #8ec07c;
-  color: #282828;
-}
-
 #idle_inhibitor.activated {
-  background-color: #abe9b3;
+  background: #abe9b3;
+  color: #282828;
 }
 
 
 
 #tray {
-  background-color: #8ec07c;
+  background: #8ec07c;
 }
 
 #tray > .passive {
@@ -43,6 +38,6 @@
 
 #submap {
   margin-left: 12px;
-  background: #97e1ad;
+  background: #8ec07c;
   color: #161320;
 }

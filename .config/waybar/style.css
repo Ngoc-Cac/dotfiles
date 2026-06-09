@@ -7,22 +7,14 @@
 * {
   border: none;
   border-radius: 4px;
-  font-family: "Hack Nerd Font Propo Bold";
-  font-size: 15px;
+  font-family: "Caskaydia Mono NF Propo Bold";
+  font-size: 16px;
   font-weight: 700;
   min-height: 20px;
   transition: none;
 }
 
 window#waybar {
-  background: transparent;
-}
-
-#window {
-  margin-top: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: transparent;
   background: transparent;
 }
 
