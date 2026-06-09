@@ -1,4 +1,4 @@
-# guard clause again non-interactive sessions
+# guard clause against non-interactive sessions
 [[ $- != *i* ]] && return
 
 # the get the start time in terms of nanosecs
@@ -9,8 +9,7 @@ _lazy_load() {
     local cmd_name="$1"
     local init_cmd="$2"
 
-    # unset the load fn first, then init the cmd
-    # and run it with given args
+    # unset the load fn first, then init the cmd and run it with given args
     eval "$cmd_name() {
         unset -f $cmd_name; eval \"\$($init_cmd)\"; $cmd_name \"\$@\"
     }"
@@ -21,7 +20,12 @@ _lazy_load() {
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
+shopt -s histappend
 shopt -s no_empty_cmd_completion
+
+HISTFILE=~/.local/share/.bash_history
+HISTCONTROL='ignoredups'
+HISTFILESIZE=100000
 
 
 # quick command to commit to the bare repo tracking this configuration setup
