@@ -1,7 +1,7 @@
 CONFIG = require("config")
 local main_mod = CONFIG["main_mod"]
 
-hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(main_mod .. " + SHIFT + v", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(main_mod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
