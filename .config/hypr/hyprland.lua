@@ -28,6 +28,7 @@ hl.config(CONFIG["hypr_config"])
 --     scale    = "auto"
 -- })
 
+require("animations")
 
 require("win_rules")
 
