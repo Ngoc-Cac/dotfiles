@@ -32,4 +32,6 @@ require("binds.layouts")
 -- MISC
 hl.bind(main_mod .. "+ v", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
+require("binds.zoom")
+
 require("binds.hjkl_mode")
