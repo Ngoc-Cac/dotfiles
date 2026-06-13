@@ -77,9 +77,27 @@
 
     "clock": {
         "interval": 1,  // refresh rate (seconds)
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "{calendar}",
         "format": "{:%d/%m/%Y  %H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%H:%M:%S}",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "left",
+            "iso8601": true,
+            "format": {
+                "months":   "<span color='#abe9b3'>{}</span>",
+                "days":     "<span color='#fbf1c7'>{}</span>",
+                "weeks":    "<span color='#ffcc66'>W{}</span>",
+                "weekdays": "<span color='#ffcc66'>{}</span>",
+                "today":    "<span color='#fb4934'>{}</span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "idle_inhibitor": {  // when activated, screen won't sleep
         "format": "{icon}",
