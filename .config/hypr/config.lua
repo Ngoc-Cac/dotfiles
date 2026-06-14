@@ -36,8 +36,8 @@ return {
     }
   },
   main_mod     = "SUPER",
-  launcher     = "rofi -show drun",
-  terminal     = "kitty",
-  file_manager = "dolphin",
-  browser      = "brave --ozone-platform=wayland"
+  launcher     = "rofi -show drun -run-command 'uwsm app -- {cmd}' -drun-command 'uwsm app -- {cmd}'",
+  terminal     = "uwsm app -- kitty",
+  file_manager = "uwsm app -- dolphin",
+  browser      = "uwsm app -- brave"
 }

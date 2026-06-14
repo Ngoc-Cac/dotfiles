@@ -19,19 +19,16 @@ hl.bind(main_mod .. " + y", hl.dsp.exec_cmd(CONFIG["browser"] .. " --app=https:/
 
 -- screenshot
 hl.bind(main_mod .. "+ SHIFT + s", hl.dsp.exec_cmd("grimblast copy area"))
-
-
--- audio controls
-require("binds.audio")
-
-
--- navigation
-require("binds.layouts")
-
-
--- MISC
+-- view cliphist
 hl.bind(main_mod .. "+ v", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
-require("binds.zoom")
+
+
+
+require("binds.audio")  -- audio controls
+
+require("binds.layouts")  -- navigation
+
+require("binds.zoom")  -- zoom with scroll wheel
 
 require("binds.hjkl_mode")

@@ -2,19 +2,28 @@ local CONFIG = require("config")
 
 
 local startup = {
-  "systemctl --user start hyprpolkitagent",
+  --- the commented lines should only be enabled if NOT using uwsm ---
+  -- some syncing stuff for the xdg-desktop-portal-hyprland
+  -- "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+  -- "systemctl --user start hyprpolkitagent",
 
-  -- idle inhibitor and wallpaper
-  "hyprpaper", "hypridle",
+  -- wallpaper, idling and status bar
+  -- "hyprpaper", "hypridle", "waybar",
 
   -- wifi applet
   "nm-applet --indicator", "blueman-applet",
 
-  "waybar", CONFIG["terminal"],
+  -- input stuff
+  "wl-paste --watch cliphist store",
+  "fcitx5 -dr",
+
+  CONFIG["terminal"],
 }
 
 hl.on("hyprland.start", function()
-  for _, command in ipairs(startup) do hl.exec_cmd(command) end
+  for _, command in ipairs(startup) do
+    hl.exec_cmd("uwsm app -- " .. command)
+  end
 end)
 
 
