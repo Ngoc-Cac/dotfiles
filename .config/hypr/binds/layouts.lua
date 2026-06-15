@@ -14,10 +14,12 @@ hl.bind(main_mod .. "+ ALT + h",     hl.dsp.focus({ direction = "left" }))
 hl.bind(main_mod .. "+ ALT + l",     hl.dsp.focus({ direction = "right" }))
 hl.bind(main_mod .. "+ ALT + k",     hl.dsp.focus({ direction = "up" }))
 hl.bind(main_mod .. "+ ALT + j",     hl.dsp.focus({ direction = "down" }))
+hl.bind(main_mod .. "+ Tab", hl.dsp.layout("cyclenext"))
+hl.bind(main_mod .. "+ SHIFT + Tab", hl.dsp.layout("cycleprev"))
 
 -- navigating workspaces
-hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(main_mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(main_mod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(main_mod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 for i = 1, 10 do
   local key = i % 10
   hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
