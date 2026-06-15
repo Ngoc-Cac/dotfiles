@@ -11,12 +11,6 @@ hl.workspace_rule({
   default_name = "Browser"
 })
 
-hl.workspace_rule({
-  workspace = "3",
-  persistent = true,
-  default_name = "Media"
-})
-
 
 -- General screen sharing and pop ups
 hl.window_rule({
@@ -88,6 +82,6 @@ hl.on("window.update_rules", function(win)
     win.class == "slack" and win.floating and
     (initially_slack or not_huddle_preview)
   then
-    hl.dispatch(hl.dsp.window.float({ action = "unset", window = win }))
+    hl.dispatch(hl.dsp.window.float({ window = win }))
   end
 end)
