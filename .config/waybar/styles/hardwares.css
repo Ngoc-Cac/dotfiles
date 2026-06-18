@@ -1,7 +1,8 @@
 #memory,
 #disk,
 #cpu,
-#temperature {
+#temperature,
+#custom-nvidia {
   margin-top: 6px;
   padding-left: 10px;
   margin-bottom: 0px;
@@ -24,6 +25,14 @@
   background: #fb4934;
   color: #282828;
 }
+
+
+#custom-nvidia {
+  margin-left: 8px;
+  margin-right: 20px;
+  color: #fe8019;
+}
+
 
 #memory {
   margin-left: 8px;
