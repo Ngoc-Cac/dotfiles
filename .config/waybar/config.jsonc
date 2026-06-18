@@ -19,7 +19,8 @@
 
         "memory",
         "cpu",
-        "temperature"
+        "temperature",
+        "custom/nvidia"
     ],
 
 
@@ -147,8 +148,11 @@
     },
 
 
+    "memory": {
+        "interval": 10,
+        "format": "{used:0.1f} / {total:0.1f} GiB"
+    },
     "cpu": { "format": " {usage}%" },
-    "memory": { "format": "{used:0.1f} / {total:0.1f} GiB" },
     "temperature": {
         "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
         "input-filename": "temp1_input",
@@ -157,5 +161,11 @@
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["󰉬", "", "󰉪"]
+    },
+    "custom/nvidia": {
+        "interval": 10,
+        "exec": "nvidia-smi --query-gpu=temperature.gpu,memory.used,memory.total --format=csv,nounits,noheader | awk -F', *' '{printf \"{\\\"text\\\":\\\"%d°C\\\", \\\"tooltip\\\":\\\"%.1f / %.1f GiB\\\"}\\n\", $1, $2/1024, $3/1024}'",
+        "return-type": "json",
+        "format": "󰢮 {}"
     }
 }
