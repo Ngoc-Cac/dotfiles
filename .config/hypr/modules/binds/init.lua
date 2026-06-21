@@ -21,17 +21,15 @@ hl.bind(
 
 
 -- screenshot
-hl.bind(main_mod .. "+ SHIFT + s", hl.dsp.exec_cmd("grimblast copy area"))
+hl.bind(main_mod .. "+ SHIFT + s", hl.dsp.exec_cmd("grimblast --freeze copy area"))
 -- view cliphist
 hl.bind(main_mod .. "+ v", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 
+require("modules.binds.audio")  -- audio controls
 
+require("modules.binds.layouts")  -- navigation
 
-require("binds.audio")  -- audio controls
+require("modules.binds.zoom")  -- zoom with scroll wheel
 
-require("binds.layouts")  -- navigation
-
-require("binds.zoom")  -- zoom with scroll wheel
-
-require("binds.hjkl_mode")
+require("modules.binds.hjkl_mode")
