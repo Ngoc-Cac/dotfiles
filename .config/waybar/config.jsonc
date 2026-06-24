@@ -120,14 +120,14 @@
     },
     "pulseaudio#output": {
         "format": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "󰝟 ",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "",
+        "format-bluetooth-muted": "󰝟 ",
         "format-icons": {
             "headphone": " ",
             "headset": " ",
             "hands-free": "󰂑",
-            "default": [ " ", " ", "" ]
+            "default": [ "", " ", " " ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol"
