@@ -37,6 +37,7 @@ return {
   },
   main_mod     = "SUPER",
   launcher     = "rofi -show drun -theme ~/.config/rofi/launcher/style.rasi -run-command 'uwsm app -- {cmd}' -drun-command 'uwsm app -- {cmd}'",
+  powermenu    = ". ~/.config/rofi/powermenu/powermenu.sh",
   terminal     = "uwsm app -- kitty",
   file_manager = "uwsm app -- dolphin",
   browser      = "uwsm app -- brave"
