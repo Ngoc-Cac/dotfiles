@@ -1,8 +1,8 @@
 local arrow_map = { H = "left", J = "down", K = "up", L = "right" }
 
-hl.bind("ALT + Tab", hl.dsp.submap("HJKL Mode"))
+hl.bind("code:66", hl.dsp.submap("HJKL Mode"))
 hl.define_submap("HJKL Mode", function()
-  hl.bind("Tab", hl.dsp.submap("reset"))
+  hl.bind("code:66", hl.dsp.submap("reset"))
 
   -- weird bug: https://github.com/hyprwm/Hyprland/discussions/14445#discussioncomment-16894377
   for k, arrow in pairs(arrow_map) do

@@ -26,6 +26,10 @@ return {
       },
     },
 
+    input = {
+      kb_options = "lv3:caps_switch_capslock_with_ctrl"  -- Ctrl + CapsLock for CapsLock
+    },
+
     dwindle = {
       force_split = 2,
       preserve_split = true
