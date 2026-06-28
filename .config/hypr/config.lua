@@ -40,7 +40,7 @@ return {
     }
   },
   main_mod     = "SUPER",
-  launcher     = "rofi -show drun -theme ~/.config/rofi/launcher/style.rasi -run-command 'uwsm app -- {cmd}' -drun-command 'uwsm app -- {cmd}'",
+  launcher     = "rofi-launcher.sh",
   powermenu    = "rofi-powermenu.sh",
   terminal     = "uwsm app -- kitty",
   file_manager = "uwsm app -- dolphin",
