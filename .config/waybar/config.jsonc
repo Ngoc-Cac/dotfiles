@@ -2,13 +2,7 @@
     // "reload_style_on_change": true,
     "height": 20,
     "spacing": 4,
-    "modules-left": [
-        "custom/power",
-        // "keyboard-state",
-
-        "hyprland/workspaces",
-        "mpris"
-    ],
+    "modules-left": [ "custom/power", "hyprland/workspaces" ],
     "modules-center": [ "idle_inhibitor", "clock" ],
     "modules-right": [
         "hyprland/submap",
@@ -53,26 +47,6 @@
             "format": "{icon}",
             "icon-size": 20
         }
-    },
-
-
-    "mpris": {
-        "interval": 1,
-        "format": "{player_icon}{dynamic}",
-        "format-paused": "{status_icon} {dynamic}",
-
-        "max-length": 70,
-        "dynamic-order": ["artist", "title", "album", "position"],
-        "dynamic-importance-order": ["title", "artist", "album", "position", "length"],
-        "ellipsis": "...",
-
-        "player-icons": {
-            "default": " ",
-            "spotify": " ",
-            "firefox": "󰈹 ",
-            "brave": " "
-        },
-        "status-icons": { "paused": "" }
     },
 
 
@@ -126,7 +100,6 @@
         "format-icons": {
             "headphone": " ",
             "headset": " ",
-            "hands-free": "󰂑",
             "default": [ "", " ", " " ]
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -137,14 +110,6 @@
         "format-disconnected": "⚠ ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{essid}: {ifname} via {gwaddr}"
-    },
-
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{icon} {name}",
-        "format-icons": { "locked": "", "unlocked": "" }
     },
 
 

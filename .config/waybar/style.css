@@ -32,14 +32,3 @@ window#waybar {
 #custom-power:hover {
   background-color: grey;
 }
-
-
-#mpris {
-  margin-top: 6px;
-  margin-left: 10px;
-  padding-right: 10px;
-  color: #51de96;
-}
-#mpris.paused {
-  color: #6eba94;
-}
