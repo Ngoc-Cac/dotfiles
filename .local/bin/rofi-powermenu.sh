@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-theme="$HOME/.config/rofi/powermenu/style.rasi"
 
+theme="~/.config/rofi/powermenu.rasi"
 shutdown='  Shutdown'
 reboot='  Reboot'
 suspend='󰤄  Suspend'
@@ -37,23 +37,18 @@ select_dialogue() {
 	echo -e "$shutdown\n$reboot\n$suspend\n$logout" | rofi -dmenu -i -theme ${theme}
 }
 
-run_cmd() {
-    [[ "$(confirm_dialogue)" == "$no" ]] && exit 0
 
-    case "$1" in
-        "$shutdown")
-            systemctl poweroff
-            ;;
-        "$reboot")
-            systemctl reboot
-            ;;
-        "$suspend")
-            systemctl suspend
-            ;;
-        "$logout")
-            session_logout
-            ;;
-    esac
-}
-
-run_cmd "$(select_dialogue)"
+case $(select_dialogue) in
+    $shutdown)
+        [[ "$(confirm_dialogue)" == "$yes" ]] && systemctl poweroff
+        ;;
+    $reboot)
+        [[ "$(confirm_dialogue)" == "$yes" ]] && systemctl reboot
+        ;;
+    $suspend)
+        systemctl suspend
+        ;;
+    $logout)
+        session_logout
+        ;;
+esac
