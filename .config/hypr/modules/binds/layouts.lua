@@ -29,3 +29,7 @@ end
 -- Move/resize windows with clik and drag
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+
+hl.bind(main_mod .. " + T",         hl.dsp.workspace.toggle_special("term"))
+hl.bind(main_mod .. " + SHIFT + T", hl.dsp.window.move({ workspace = "special:term" }))
