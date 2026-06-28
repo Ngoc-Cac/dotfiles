@@ -24,9 +24,10 @@
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml",
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend"
+			"shutdown": "systemctl poweroff",
+			"reboot": "systemctl reboot",
+			"suspend": "systemctl suspend",
+            "logout": "uwsm stop"
 		}
     },
 
@@ -35,6 +36,8 @@
         "disable-scroll": false,
         "all-outputs": true,
         "warp-on-scroll": false,
+        "show-special": true,
+        "special-visible-only": true,
         "format": "{icon}{windows} {name}",
         "format-icons": {
             "urgent": " ",
