@@ -24,6 +24,11 @@ hl.bind(main_mod .. "+ SHIFT + s", hl.dsp.exec_cmd("grimblast -nf copy area"))
 hl.bind(main_mod .. "+ v", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
 
 
+-- screen brightness
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("adjust-brightness.sh up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("adjust-brightness.sh down"))
+
+
 require("modules.binds.audio")  -- audio controls
 
 require("modules.binds.layouts")  -- navigation
