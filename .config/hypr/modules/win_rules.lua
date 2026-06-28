@@ -1,7 +1,7 @@
 hl.workspace_rule({
   workspace = "1",
   persistent = true,
-  default_name = "Terminals"
+  default_name = "Default"
 })
 
 hl.workspace_rule({
