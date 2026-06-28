@@ -22,7 +22,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- " .. command)
   end
 
-  hl.dsp.exec_cmd(CONFIG["terminal"], { workspace = "special:term silent" })
+  hl.dsp.exec_cmd(CONFIG["terminal"], { workspace = "special:Terminal silent" })
 end)
 
 hl.config(CONFIG["hypr_config"])

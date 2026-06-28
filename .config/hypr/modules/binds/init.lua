@@ -4,9 +4,7 @@ local main_mod = CONFIG["main_mod"]
 
 -- shutdown app and hyprland
 hl.bind(main_mod .. " + q", hl.dsp.window.close())
-hl.bind(main_mod .. " + m", hl.dsp.exec_cmd(
-  "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown --vt 2 || hyprctl dispatch 'hl.dsp.exit()'"
-))
+hl.bind(main_mod .. " + m", hl.dsp.exec_cmd(CONFIG['powermenu']))
 
 
 -- apps and stuff
