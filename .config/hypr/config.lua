@@ -8,7 +8,8 @@ return {
       no_focus_fallback = true,  -- no wrapping basically
 
       resize_on_border = true,  -- resize by clicking and dargging
-      border_size = 2
+      border_size = 2,
+      layout = 'monocle'
     },
 
     decoration = {

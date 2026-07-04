@@ -4,13 +4,6 @@ hl.workspace_rule({
   default_name = "Default"
 })
 
-hl.workspace_rule({
-  workspace = "2",
-  persistent = true,
-  layout = "monocle",
-  default_name = "Browser"
-})
-
 
 -- General screen sharing and pop ups
 hl.window_rule({
