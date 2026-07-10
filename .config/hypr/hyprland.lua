@@ -1,24 +1,8 @@
 local CONFIG = require("config")
 
 
-local startup = {
-  --- the commented lines should only be enabled if NOT using uwsm ---
-  -- some syncing stuff for the xdg-desktop-portal-hyprland
-  -- "systemctl --user start hyprpolkitagent",
-
-  -- wallpaper, idling and status bar
-  -- "hyprpaper", "hypridle", "waybar",
-
-  -- wifi applet
-  "nm-applet --indicator", "blueman-applet",
-
-  -- input stuff
-  "wl-paste --watch cliphist store",
-  "fcitx5 -dr",
-}
-
 hl.on("hyprland.start", function()
-  for _, command in ipairs(startup) do
+  for _, command in ipairs(CONFIG['startup_cmds']) do
     hl.exec_cmd("uwsm app -- " .. command)
   end
   hl.exec_cmd(CONFIG["terminal"], { workspace = "special:Terminal silent" })

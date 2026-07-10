@@ -40,6 +40,21 @@ return {
       disable_hyprland_logo = true
     }
   },
+  startup_cmds = {
+    --- the commented lines should only be enabled if NOT using uwsm ---
+    -- some syncing stuff for the xdg-desktop-portal-hyprland
+    -- "systemctl --user start hyprpolkitagent",
+
+    -- wallpaper, idling and status bar
+    -- "hyprpaper", "hypridle", "waybar",
+
+    -- wifi applet
+    "nm-applet --indicator", "blueman-applet",
+
+    -- input stuff
+    "wl-paste --watch cliphist store",
+    "fcitx5 -dr",
+  },
   main_mod     = "SUPER",
   launcher     = "rofi-launcher.sh",
   powermenu    = "rofi-powermenu.sh",
