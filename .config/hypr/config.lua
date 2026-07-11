@@ -31,6 +31,10 @@ return {
       kb_options = "lv3:caps_switch_capslock_with_ctrl"  -- Ctrl + CapsLock for CapsLock
     },
 
+    binds = {
+      scroll_event_delay = 0  -- ms to wait until passing the next scroll to bind
+    },
+
     dwindle = {
       force_split = 2,
       preserve_split = true
@@ -59,6 +63,6 @@ return {
   launcher     = "rofi-launcher.sh",
   powermenu    = "rofi-powermenu.sh",
   terminal     = "uwsm app -- kitty",
-  file_manager = "uwsm app -- dolphin",
+  file_manager = "uwsm app -- thunar",
   browser      = "uwsm app -- brave"
 }
