@@ -31,5 +31,14 @@ hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 
+-- special workspaces
 hl.bind(main_mod .. " + T",         hl.dsp.workspace.toggle_special("Terminal"))
 hl.bind(main_mod .. " + SHIFT + T", hl.dsp.window.move({ workspace = "special:Terminal" }))
+
+hl.bind(main_mod .. " + SHIFT + O", hl.dsp.workspace.toggle_special("Overlay"))
+hl.bind(main_mod .. " + S", hl.dsp.submap("Special Workspace"))
+hl.define_submap("Special Workspace", function()
+  hl.bind(main_mod .. " + S", hl.dsp.submap("reset"))
+  hl.bind("O",         hl.dsp.workspace.toggle_special("Overlay"))
+  hl.bind("SHIFT + O", hl.dsp.window.move({ workspace = "special:Overlay" }))
+end)

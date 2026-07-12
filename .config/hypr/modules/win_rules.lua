@@ -4,6 +4,11 @@ hl.workspace_rule({
   default_name = "Default"
 })
 
+-- floating win in overlay workspace
+hl.window_rule({
+  match = { workspace = "special:Overlay" },
+  float = true
+})
 
 -- General screen sharing and pop ups
 hl.window_rule({
@@ -18,9 +23,10 @@ hl.window_rule({
 hl.window_rule({
   name = "sharer-toolbar",
   match = { title = "^(.* is sharing a window.)$" },
+  workspace = 'special:Overlay',
   float = true,
   move = { "(monitor_w - window_w) * 0.5", "monitor_h - window_h - 50" },
-  pin = true,
+  pin = false,
   focus_on_activate = false,
   dim_around = false,
   decorate = false,
@@ -58,10 +64,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "slack-huddle",
-  match = {
-    class = "slack",
-    title = "^Slack$",
-  },
+  match = { class = "slack", title = "^Slack$" },
   move = { "(monitor_w - window_w) * 0.5", "monitor_h - window_h - 50" },
   float = true,
   pin = true
