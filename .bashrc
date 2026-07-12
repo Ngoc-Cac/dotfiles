@@ -16,14 +16,14 @@ _lazy_load() {
 }
 
 # cache directory for some eval commands
-[[ ! -d ~/.config/.cache ]] && mkdir ~/.config/.cache
+[[ ! -d ~/.local/share/bash/eval_cache ]] && mkdir -p ~/.local/share/bash/eval_cache
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
 shopt -s histappend
 shopt -s no_empty_cmd_completion
 
-HISTFILE=~/.local/share/.bash_history
+HISTFILE=~/.local/share/bash/.bash_history
 HISTCONTROL='ignoredups'
 HISTFILESIZE=100000
 
@@ -41,8 +41,8 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
 if _cmd_exists fzf; then
-    [[ ! -f ~/.config/.cache/fzf.sh ]] && fzf --bash > ~/.config/.cache/fzf.sh
-    . ~/.config/.cache/fzf.sh
+    [[ ! -f ~/.local/share/bash/eval_cache/fzf.sh ]] && fzf --bash > ~/.local/share/bash/eval_cache/fzf.sh
+    . ~/.local/share/bash/eval_cache/fzf.sh
 fi
 
 _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
