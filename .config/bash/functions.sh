@@ -57,7 +57,6 @@ EOF
 }
 
 live-latex() {
-    local opts
     if [[ $1 == "-h" || $1 == "--help" ]]; then
         cat << EOF
 Run latexmk with live preview (-pvc)
@@ -87,7 +86,9 @@ EOF
         return 1
     fi
 
-    [[ $# -ge 2 ]] && opts+="-outdir='$2' "
-    [[ $# -eq 3 ]] && opts+="-jobname='$3'"
-    latexmk -pvc -pdf $opts $1
+    local opts=()
+    [[ $# -ge 2 ]] && opts+=("-outdir=$2")
+    [[ $# -eq 3 ]] && opts+=("-jobname=$3")
+
+    latexmk -pvc -pdf "${opts[@]}" "$1"
 }
