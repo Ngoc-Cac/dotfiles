@@ -62,7 +62,7 @@ return {
   main_mod     = "SUPER",
   launcher     = "rofi-launcher.sh",
   powermenu    = "rofi-powermenu.sh",
-  terminal     = "uwsm app -- kitty",
+  terminal     = "uwsm app -- alacritty",
   file_manager = "uwsm app -- thunar",
   browser      = "uwsm app -- brave"
 }
