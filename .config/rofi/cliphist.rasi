@@ -1,0 +1,90 @@
+@import "~/.config/rofi/colorschemes/gruvbox.rasi"
+
+* {
+    font: "CaskaydiaMono Nerd Font 14";
+}
+configuration {
+    modi      : "drun";
+    show-icons: true;
+}
+
+window {
+    border-radius   : 12px;
+    border-color    : @selected;
+    background-color: @background;
+}
+
+mainbox {
+    background-color: transparent;
+    border-color    : @selected;
+    children        : [ "inputbar", "listview" ];
+}
+
+inputbar {
+    font: "CaskaydiaMono Nerd Font 18";
+    spacing         : 25px;
+    padding         : 10px;
+    border-color    : @selected;
+    background-color: @selected;
+    text-color      : @background-alt;
+    children        : [ "prompt", "entry" ];
+}
+
+prompt {
+    font: inherit;
+    background-color: inherit;
+    text-color      : inherit;
+}
+entry {
+    font: inherit;
+    placeholder      : "filter";
+    cursor           : text;
+    text-color       : inherit;
+    placeholder-color: inherit;
+    background-color : inherit;
+}
+
+listview {
+    lines           : 15;
+    dynamic         : true;  // dynamic height
+    scrollbar       : true;
+    layout          : vertical;
+
+    border-color    : @selected;
+    background-color: transparent;
+    text-color      : @foreground;
+}
+scrollbar {
+    border-radius   : 2px;
+    handle-width    : 10px;
+    handle-color    : @selected;
+    background-color: @background-alt;
+}
+
+element {
+    cursor          : pointer;
+    border-color    : @selected;
+    background-color: transparent;
+    text-color      : @foreground;
+}
+element normal.normal {
+    background-color: @background;
+    text-color      : @foreground;
+}
+element selected.normal {
+    background-color: @selected-alt;
+    text-color      : @background;
+}
+element-icon {
+    background-color: transparent;
+    size            : 5ch;
+    text-color      : inherit;
+    cursor          : inherit;
+}
+element-text {
+    background-color: transparent;
+    text-color      : inherit;
+    highlight       : inherit;
+    cursor          : inherit;
+    vertical-align  : 0.5;
+}

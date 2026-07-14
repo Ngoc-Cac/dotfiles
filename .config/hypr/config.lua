@@ -56,7 +56,8 @@ return {
     "nm-applet --indicator", "blueman-applet",
 
     -- input stuff
-    "wl-paste --watch cliphist store",
+    "wl-paste --type text --watch cliphist store",
+    "wl-paste --type image --watch cliphist store",
     "fcitx5 -dr",
   },
   main_mod     = "SUPER",

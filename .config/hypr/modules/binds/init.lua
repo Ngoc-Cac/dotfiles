@@ -21,7 +21,7 @@ hl.bind(
 -- screenshot
 hl.bind(main_mod .. " + SHIFT + s", hl.dsp.exec_cmd("grimblast -nf copy area"))
 -- view cliphist
-hl.bind(main_mod .. " + v", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(main_mod .. " + v", hl.dsp.exec_cmd("rofi-cliphist.sh"))
 
 
 -- screen brightness
