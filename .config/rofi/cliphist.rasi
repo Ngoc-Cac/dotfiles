@@ -3,6 +3,7 @@
 * {
     font: "CaskaydiaMono Nerd Font 14";
 }
+
 configuration {
     modi      : "drun";
     show-icons: true;

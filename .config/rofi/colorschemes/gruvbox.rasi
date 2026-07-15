@@ -2,7 +2,8 @@
     background:     #282828FF;
     background-alt: #353535FF;
     foreground:     #EBDBB2FF;
-    selected:       #83A598FF;
+    selected:       #B5E8E0FF;
+    selected-alt:   #ABE9B3FF;
     active:         #B8BB26FF;
     urgent:         #FB4934FF;
     font: "CaskaydiaMono Nerd Font 16";
