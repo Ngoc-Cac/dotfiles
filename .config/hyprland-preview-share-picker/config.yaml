@@ -1,0 +1,43 @@
+stylesheets: [ "style.css" ]
+default_page: outputs
+
+window:
+  height: 500
+  width: 1000
+
+image:
+  resize_size: 200
+  widget_size: 150
+
+# css classname of the components
+classes:
+  window: window  # main window
+  image_card: card  # card containing an image and a label
+  image_card_loading: card-loading  # when the image is still being loaded
+  image: image
+  image_label: image-label
+  notebook: notebook  # the thing containing the different tabs
+  tab_label: tab-label
+  notebook_page: page
+  region_button: region-button
+  restore_button: restore-button
+
+windows:
+  # minimum amount of image cards per row on the windows page
+  min_per_row: 3
+  max_per_row: 6
+  # number of clicks needed to select a window
+  clicks: 2
+  spacing: 12
+
+outputs:
+  clicks: 2
+  spacing: 6
+  show_label: false
+  respect_output_scaling: true
+
+region:
+  command: slurp -f '%o@%x,%y,%w,%h'
+
+hide_token_restore: false
+debug: false
