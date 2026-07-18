@@ -1,4 +1,4 @@
-CONFIG = require("config")
+local CONFIG = require("config")
 local main_mod = CONFIG["main_mod"]
 
 
@@ -14,7 +14,7 @@ hl.bind(main_mod .. " + o", hl.dsp.exec_cmd(CONFIG["launcher"]))
 hl.bind(main_mod .. " + b", hl.dsp.exec_cmd(CONFIG["browser"]))
 hl.bind(
   main_mod .. " + y",
-  hl.dsp.exec_cmd(CONFIG["browser"] .. " --profile-directory=Default --app=https://music.youtube.com/")
+  hl.dsp.exec_cmd(CONFIG["browser"] .. " --profile-directory=Music --app=https://music.youtube.com/")
 )
 
 

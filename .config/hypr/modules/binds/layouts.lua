@@ -1,4 +1,4 @@
-CONFIG = require("config")
+local CONFIG = require("config")
 local main_mod = CONFIG["main_mod"]
 
 hl.bind(main_mod .. " + SHIFT + v", hl.dsp.window.float({ action = "toggle" }))
