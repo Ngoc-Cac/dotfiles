@@ -27,12 +27,22 @@ alias gc="git commit"
 alias gl="git ll"
 alias gla="gl --all"
 
-### Neovim ###
-alias vi="nvim"
-alias vim="nvim"
-alias nv="nvim"
+### External Packages ###
+# Neovim
+if _cmd_exists nvim; then
+    alias vi="nvim"
+    alias vim="nvim"
+    alias nv="nvim"
+fi
 
-### Yazi ###
+# Zellij
+if _cmd_exists zellij; then
+    alias zj="zellij"
+    alias zja="zellij attach"
+    alias zjl="zellij list-sessions"
+fi
+
+# Yazi
 _cmd_exists yazi && alias zi="yazi"
 
 ### Misc ###
