@@ -11,13 +11,6 @@ end)
 hl.config(CONFIG["hypr_config"])
 
 
--- hl.monitor({
---     output   = "",
---     mode     = "preferred",
---     position = "auto",
---     scale    = "auto"
--- })
-
 require("modules.animations")
 
 require("modules.win_rules")

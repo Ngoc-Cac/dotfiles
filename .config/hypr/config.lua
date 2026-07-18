@@ -46,10 +46,9 @@ return {
   },
   startup_cmds = {
     --- the commented lines should only be enabled if NOT using uwsm ---
-    -- some syncing stuff for the xdg-desktop-portal-hyprland
     -- "systemctl --user start hyprpolkitagent",
 
-    -- wallpaper, idling and status bar
+    ---- wallpaper, idling and status bar
     -- "hyprpaper", "hypridle", "waybar",
 
     -- wifi applet
@@ -65,5 +64,5 @@ return {
   powermenu    = "rofi-powermenu.sh",
   terminal     = "uwsm app -- alacritty",
   file_manager = "uwsm app -- thunar",
-  browser      = "uwsm app -- brave"
+  browser      = "uwsm app -- brave-origin"
 }
