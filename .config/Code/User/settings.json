@@ -3,6 +3,7 @@
     "security.workspace.trust.untrustedFiles": "open",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
+    "editor.fontWeight": "450",
     "editor.tokenColorCustomizations": {
         "[Monokai Dimmed]": {
             "types":"#54ca0fde",
@@ -64,7 +65,7 @@
     ],
     "workbench.editor.empty.hint": "hidden",
     "terminal.integrated.suggest.enabled": false,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Jellybeans.vim",
     "python.languageServer": "Pylance",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
