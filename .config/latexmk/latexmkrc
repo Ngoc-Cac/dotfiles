@@ -1,0 +1,13 @@
+# jumping to location in pdf from code
+$pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode %O %S';
+$lualatex = 'lualatex -synctex=1 -interaction=nonstopmode %O %S';
+$xelatex = 'xelatex -synctex=1 -interaction=nonstopmode %O %S';
+
+# configure the update command to also update the inverse search command in sioyek
+# This socket is assigned by the `live-latex` script for SyncTeX in nvim. This
+# socket is then used for Sioyek to send back the location data.
+my $inv_search_cmd = $ENV{'NVIM_TEX_SOCKET'}
+    ? "--inverse-search 'nvim --server $ENV{'NVIM_TEX_SOCKET'} --remote-send \"<C-\\><C-N>:e %1<CR>:cal cursor(%2, 1)<CR>\"' "
+    : "";
+
+$pdf_previewer = 'sioyek ' . $inv_search_cmd . '%S';
