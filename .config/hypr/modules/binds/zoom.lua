@@ -6,6 +6,6 @@ local function zoom_incr(step)
   hl.config({ cursor = { zoom_factor = newZoom } })
 end
 
-hl.bind(main_mod .. " + mouse_up", function() zoom_incr(-0.4) end)
-hl.bind(main_mod .. " + mouse_down", function() zoom_incr(0.4) end)
+hl.bind(main_mod .. " + mouse_up", function() zoom_incr(0.4) end)
+hl.bind(main_mod .. " + mouse_down", function() zoom_incr(-0.4) end)
 hl.bind(main_mod .. " + mouse:273", function() hl.config({ cursor = { zoom_factor = 1 } }) end)
