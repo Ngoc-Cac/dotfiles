@@ -37,12 +37,12 @@ while [[ $# -gt 0 ]]; do
             ;;
         -o|--output_name)
             if [[ -z "$2" || "$2" == -* ]]; then
-                echo -e "$ERROR $1 missing jobname."; exit 1
+                echo -e "$ERROR $1 missing jobname." >&2; exit 1
             fi
             jobname="-jobname=$2"; shift 2
             ;;
         -*)
-            echo -e "$ERROR Unknown option $1"; exit 1
+            echo -e "$ERROR Unknown option $1" >&2; exit 1
             ;;
         *)
             if (( ${#opts[@]} == 0 )); then
@@ -50,8 +50,7 @@ while [[ $# -gt 0 ]]; do
             elif (( ${#opts[@]} == 1 )); then
                 opts+=("-outdir=$1")
             else
-                echo -e "$ERROR Too many arguments given!"
-                exit 1
+                echo -e "$ERROR Too many arguments given!" >&2; exit 1
             fi
             shift
             ;;
@@ -59,8 +58,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if (( ${#opts[@]} == 0 )); then
-    echo -e "$ERROR Missing the tex file to compile!"
-    exit 1
+    echo -e "$ERROR Missing the tex file to compile!" >&2; exit 1
 fi
 
 [[ -n "$jobname" ]] && opts+=("$jobname")
