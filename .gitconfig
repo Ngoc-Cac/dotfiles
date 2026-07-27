@@ -17,6 +17,7 @@
 [alias]
     ai = add -i
     br = branch
+    sw = switch
     com = commit
     cam = commit --amend
     ll = log --graph --oneline
