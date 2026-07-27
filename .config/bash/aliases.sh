@@ -45,6 +45,12 @@ fi
 # Yazi
 _cmd_exists yazi && alias zi="yazi"
 
+# Opencode
+if _cmd_exists opencode; then
+    alias opc="opencode"
+    alias opcls="opencode-ls"
+fi
+
 ### Misc ###
 alias cl="clear"
 alias start="xdg-open"
@@ -54,3 +60,5 @@ alias pyi="python -m IPython --profile=ds"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
