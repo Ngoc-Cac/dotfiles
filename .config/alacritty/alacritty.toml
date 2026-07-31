@@ -24,6 +24,9 @@ vi_mode_style = { shape = "Block", blinking = "Off" }
 [mouse]
 hide_when_typing = true
 
+[selection]
+save_to_clipboard = true
+
 [keyboard]
 bindings = [
     { key = "Back", mods = "Control", "chars" = "\u0017" }
