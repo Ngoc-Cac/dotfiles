@@ -1,1 +1,2 @@
+export QT_QPA_PLATFORMTHEME=gtk3
 export PATH="$PATH:$HOME/.local/bin"
