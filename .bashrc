@@ -27,10 +27,6 @@ HISTFILE=~/.local/share/bash/.bash_history
 HISTCONTROL='ignoredups'
 HISTFILESIZE=100000
 
-if command -v gpgconf > /dev/null 2>&1; then
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-fi
-
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
