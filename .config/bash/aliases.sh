@@ -52,6 +52,7 @@ if _cmd_exists opencode; then
 fi
 
 ### Misc ###
+[[ -n $SUDO_ASKPASS ]] && alias sudo="sudo -A"
 alias cl="clear"
 alias start="xdg-open"
 alias ipython="python -m IPython"
