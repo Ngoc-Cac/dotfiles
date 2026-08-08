@@ -2,6 +2,7 @@
 	autocrlf = input
 	symlinks = true
     editor = nvim
+    pager = "less -+X"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
