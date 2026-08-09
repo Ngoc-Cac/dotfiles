@@ -10,7 +10,7 @@ hl.bind(main_mod .. " + m", hl.dsp.exec_cmd(CONFIG['powermenu']))
 -- apps and stuff
 hl.bind(main_mod .. " + RETURN", hl.dsp.exec_cmd(CONFIG["terminal"]))
 hl.bind(main_mod .. " + f", hl.dsp.exec_cmd(CONFIG["file_manager"]))
-hl.bind(main_mod .. " + o", hl.dsp.exec_cmd(CONFIG["launcher"]))
+hl.bind(main_mod .. " + l", hl.dsp.exec_cmd(CONFIG["launcher"]))
 hl.bind(main_mod .. " + b", hl.dsp.exec_cmd(CONFIG["browser"]))
 hl.bind(
   main_mod .. " + y",

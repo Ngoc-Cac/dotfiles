@@ -38,10 +38,5 @@ hl.bind(main_mod .. " + SHIFT + T", hl.dsp.window.move({ workspace = "special:Te
 hl.bind(main_mod .. " + C",         hl.dsp.workspace.toggle_special("Chats"))
 hl.bind(main_mod .. " + SHIFT + C", hl.dsp.window.move({ workspace = "special:Chats" }))
 
-hl.bind(main_mod .. " + SHIFT + O", hl.dsp.workspace.toggle_special("Overlay"))
-hl.bind(main_mod .. " + S", hl.dsp.submap("Special Workspace"))
-hl.define_submap("Special Workspace", function()
-  hl.bind(main_mod .. " + S", hl.dsp.submap("reset"))
-  hl.bind("O",         hl.dsp.workspace.toggle_special("Overlay"))
-  hl.bind("SHIFT + O", hl.dsp.window.move({ workspace = "special:Overlay" }))
-end)
+hl.bind(main_mod .. " + O",         hl.dsp.workspace.toggle_special("Overlay"))
+hl.bind(main_mod .. " + SHIFT + O", hl.dsp.window.move({ workspace = "special:Overlay" }))
