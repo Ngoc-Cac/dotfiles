@@ -69,6 +69,7 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
         bind "Ctrl c" { UndoRenamePane; }
+        bind "enter" { SwitchToMode "locked"; }
     }
 
     tab {
@@ -86,6 +87,7 @@ keybinds clear-defaults=true {
     renametab {
         bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
         bind "Ctrl c" { UndoRenameTab; }
+        bind "enter" { SwitchToMode "locked"; }
     }
 
     resize {
