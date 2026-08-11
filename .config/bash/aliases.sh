@@ -53,7 +53,7 @@ fi
 
 ### Misc ###
 [[ -n $SUDO_ASKPASS ]] && alias sudo="sudo -A"
-alias cl="clear"
+alias cl="clear -x"
 alias start="xdg-open"
 alias ipython="python -m IPython"
 alias pyi="python -m IPython --profile=ds"
