@@ -55,39 +55,3 @@ EOF
 
     . "$venv_path/Scripts/activate"
 }
-
-live-latex() {
-    local opts
-    if [[ $1 == "-h" || $1 == "--help" ]]; then
-        cat << EOF
-Run latexmk with live preview (-pvc)
-
-Usage:
-  live-latex filename [outdir] [outfile]
-  live-latex -h | --help
-
-Arguments:
-  filename   The name of the input file to compile
-  outdir     The name of the output directory. If not given, the compilation
-                results are output to the current directory
-  outflie    The name of the output file. If not given, the name of the
-                input file is used.
-
-Options:
-    -h,  --help    Show this help message.
-EOF
-        return 0
-    fi
-
-    if [[ $# -eq 0 ]]; then
-        echo "Error: Expected at least 1 arguments, but received $#!"
-        return 1
-    elif [[ $# -gt 3 ]]; then
-        echo "Error: Expected at most 3 arguments, but received $#!"
-        return 1
-    fi
-
-    [[ $# -ge 2 ]] && opts+="-outdir='$2' "
-    [[ $# -eq 3 ]] && opts+="-jobname='$3'"
-    latexmk -pvc -pdf $opts $1
-}

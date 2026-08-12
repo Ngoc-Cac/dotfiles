@@ -1,5 +1,7 @@
+export PATH="$PATH:~/.local/bin"
 export TERM='xterm-direct'
+export LESS="-R"  # auto colour support
+export VISUAL=nvim
 export EDITOR=nvim
-export HISTFILE=~/logs/bash/.bash_history
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

@@ -28,16 +28,32 @@ alias gc="git commit"
 alias gl="git ll"
 alias gla="gl --all"
 
-### Neovim ###
-alias vi="nvim"
-alias vim="nvim"
-alias nv="nvim"
+### External Packages ###
+# Neovim
+if _cmd_exists nvim; then
+    alias vi="nvim"
+    alias vim="nvim"
+    alias nv="nvim"
+fi
 
-### Yazi ###
+# Zellij
+if _cmd_exists zellij; then
+    alias zj="zellij"
+    alias zja="zellij attach"
+    alias zjl="zellij list-sessions"
+fi
+
+# Yazi
 _cmd_exists yazi && alias zi="yazi"
 
+# Opencode
+if _cmd_exists opencode; then
+    alias opc="opencode"
+    alias opcls="opencode-ls"
+fi
+
 ### Misc ###
-alias cl="clear"
+alias cl="clear -x"
 alias conda-act=". ~/miniconda3/Scripts/activate"
 alias ipython="python -m IPython"
 alias pyi="python -m IPython --profile=ds"
@@ -45,3 +61,5 @@ alias pyi="python -m IPython --profile=ds"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."

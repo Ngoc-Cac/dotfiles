@@ -1,6 +1,8 @@
 [core]
-	autocrlf = true
+	autocrlf = input
 	symlinks = true
+    editor = nvim
+    pager = "less -+X"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -11,9 +13,12 @@
 [user]
 	name = Trịnh Ngọc Các
 	email = cactrinh5@gmail.com
+[init]
+	defaultBranch = main
 [alias]
     ai = add -i
     br = branch
+    sw = switch
     com = commit
     cam = commit --amend
     ll = log --graph --oneline
@@ -21,5 +26,3 @@
     st = status
     unstage = restore --staged
     wt = worktree
-[http]
-	sslcainfo = E:/Git/mingw64/etc/ssl/certs/ca-bundle.crt

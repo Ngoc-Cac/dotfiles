@@ -2,12 +2,14 @@
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
     "logo": {
         "source": "windows",
-        "padding": { "top": 1 }
+        "padding": { "top": 3 }
     },
     "display": {
         "separator": "",
         "constants": [
             "\u001b[56C",  // $1: Move cursor forward, D will move backwards
+            "\u001b[19C",
+            "\u001b[18C",
             "╰────────────────────────────────────────────────────────────────────╯"
             ],
         "key": { "width": 14 }  // set the width of all key
@@ -16,74 +18,93 @@
         // #90 means \u001b[90m
         {
             "type": "custom",
+            "format": "{$3}{#31}██{#91}██ {#32}██{#92}██ {#33}██{#93}██ {#34}██{#94}██ {#35}██{#95}██ {#36}██{#96}██ {#37}██{#97}██"
+        },
+        {
+            "type": "terminalfont",
+            "format": "{$2}\u001b[1m{1}",
+            "key": " "
+        },
+
+        {
+            "type": "custom",
+            "format": "╭──────────────────────────────  User  ──────────────────────────────╮",
+            "outputColor": "96"
+        },
+        {
+            "type": "title",
+            "key": "{#96}│      {#96}User:{$1} {#96}│"
+        },
+        {
+            "type": "uptime",
+            "key": "{#96}│    {#96}Uptime:{$1} {#96}│"
+        },
+        {
+            "type": "command",
+            "key": "{#96}│   {#96}Startup:{$1} {#96}│",
+            "text": "echo %STARTUP_TIME% ms"
+        },
+        {
+            "type": "custom",
+            "format": "{$4}",
+            "outputColor": "96"
+        },
+
+        {
+            "type": "custom",
             "format": "╭──────────────────────────────  Info  ──────────────────────────────╮",
             "outputColor": "33"
         },
         {
             "type": "os",
-            "key": "{#33}│        {#34}OS:{$1} {#33}│"
+            "key": "{#33}│        {#33}OS:{$1} {#33}│"
         },
         {
             "type": "host",
-            "key": "{#33}│      {#34}Host:{$1} {#33}│"
-        },
-        {
-            "type": "title",
-            "key": "{#33}│      {#34}User:{$1} {#33}│"
+            "key": "{#33}│      {#33}Host:{$1} {#33}│"
         },
         {
             "type": "packages",
-            "key": "{#33}│  {#34}Packages:{$1} {#33}│"
-        },
-        {
-            "type": "uptime",
-            "key": "{#33}│    {#34}Uptime:{$1} {#33}│"
-        },
-        {
-            "type": "command",
-            "key": "{#33}│   {#34}Startup:{$1} {#33}│",
-            "text": "echo %STARTUP_TIME% ms"
+            "key": "{#33}│  {#33}Packages:{$1} {#33}│"
         },
         {
             "type": "custom",
-            "format": "{$2}",
+            "format": "{$4}",
             "outputColor": "33"
         },
 
         {
             "type": "custom",
             "format": "╭────────────────────────────  Hardware  ────────────────────────────╮",
-            "outputColor": "33"
+            "outputColor": "91"
         },
         {
             "type": "cpu",
-            "key": "{#33}│       {#34}CPU:{$1} {#33}│",
+            "key": "{#91}│       {#91}CPU:{$1} {#91}│",
             "showPeCoreCount": true
         },
-        // {
-        //     "type": "gpu",
-        //     "key": "{#33}│       {#34}GPU:{$1} {#33}│"
-        // },
         {
-            "type": "memory",
-            "key": "{#33}│    {#36}Memory:{$1} {#33}│"
+            "type": "gpu",
+            "key": "{#91}│       {#91}GPU:{$1} {#91}│"
         },
         {
             "type": "disk",
-            "key": "{#33}│      {#32}Disk:{$1} {#33}│"
+            "key": "{#91}│      {#32}Disk:{$1} {#91}│"
+        },
+        {
+            "type": "memory",
+            "key": "{#91}│    {#95}Memory:{$1} {#91}│"
         },
         {
             "type": "custom",
-            "format": "{$2}",
-            "outputColor": "33"
-        },
+            "format": "{$4}",
+            "outputColor": "91"
+        }
 
-        {
-            "type": "terminalfont",
-            "key": "Terminal Font:",
-            "keyWidth": 16
-        },
-        // "terminaltheme",
-        "colors"
+        // {
+        //     "type": "terminalfont",
+        //     "key": "       {#96}Font:"
+        // },
+        // "colors"
     ]
 }

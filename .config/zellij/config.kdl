@@ -1,0 +1,169 @@
+keybinds clear-defaults=true {
+    // leader
+    shared_among "locked" "move" "session" "tab" "pane" "scroll" "resize" {
+        bind "Ctrl Space" { SwitchToMode "normal"; }
+    }
+    normal {
+        bind "s" { SwitchToMode "session"; }
+        bind "t" { SwitchToMode "tab"; }
+        bind "w" { SwitchToMode "pane"; }
+        bind "v" { SwitchToMode "scroll"; }
+        bind "r" { SwitchToMode "resize"; }
+    }
+    shared_except "locked" "renametab" "renamepane" "entersearch" {
+        bind "Ctrl q" { Quit; }
+        bind "esc" { SwitchToMode "locked"; }
+        bind "i" { SwitchToMode "locked"; }
+        bind "q" { SwitchToMode "locked"; }
+    }
+
+    shared_among "normal" "locked" "resize" "pane" {
+        bind "Alt h" { MoveFocus "left"; }
+        bind "Alt j" { MoveFocus "down"; }
+        bind "Alt k" { MoveFocus "up"; }
+        bind "Alt l" { MoveFocus "right"; }
+
+        bind "Alt H" { GoToPreviousTab; SwitchToMode "locked"; }
+        bind "Alt L" { GoToNextTab; SwitchToMode "locked"; }
+        bind "Alt J" { GoToPreviousTab; SwitchToMode "locked"; }
+        bind "Alt K" { GoToNextTab; SwitchToMode "locked"; }
+
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt n" { NewPane; }
+
+        bind "Alt i" { MoveTab "left"; }
+        bind "Alt o" { MoveTab "right"; }
+
+        bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt Shift p" { ToggleGroupMarking; }
+    }
+
+    pane {
+        bind "w" { SwitchToMode "normal"; }
+        bind "tab" { SwitchFocus; }
+
+        bind "s" { NewPane "stacked"; SwitchToMode "locked"; }
+
+        bind "h" { NewPane "left"; }
+        bind "j" { NewPane "down"; }
+        bind "k" { NewPane "up"; }
+        bind "l" { NewPane "right"; }
+
+        // moving pane and such
+        bind "H" { MovePane "left"; }
+        bind "J" { MovePane "down"; }
+        bind "K" { MovePane "up"; }
+        bind "L" { MovePane "right"; }
+
+        bind "r" { SwitchToMode "renamepane"; PaneNameInput 0; }
+
+        bind "p" { TogglePanePinned; SwitchToMode "locked"; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        bind "F" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+
+        bind "z" { TogglePaneFrames; }
+        bind "x" { CloseFocus; }
+    }
+    renamepane {
+        bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
+        bind "Ctrl c" { UndoRenamePane; }
+        bind "enter" { SwitchToMode "locked"; }
+    }
+
+    tab {
+        bind "t" { SwitchToMode "normal"; }
+
+        bind "b" { BreakPane; SwitchToMode "locked"; }
+        bind "[" { BreakPaneLeft; SwitchToMode "locked"; }
+        bind "]" { BreakPaneRight; SwitchToMode "locked"; }
+
+        bind "n" { NewTab; SwitchToMode "locked"; }
+        bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
+
+        bind "x" { CloseTab; SwitchToMode "locked"; }
+    }
+    renametab {
+        bind "esc" { UndoRenameTab; SwitchToMode "tab"; }
+        bind "Ctrl c" { UndoRenameTab; }
+        bind "enter" { SwitchToMode "locked"; }
+    }
+
+    resize {
+        bind "r" { SwitchToMode "normal"; }
+
+        bind "h" { Resize "Increase left"; }
+        bind "j" { Resize "Increase down"; }
+        bind "k" { Resize "Increase up"; }
+        bind "l" { Resize "Increase right"; }
+
+        bind "H" { Resize "Decrease left"; }
+        bind "J" { Resize "Decrease down"; }
+        bind "K" { Resize "Decrease up"; }
+        bind "L" { Resize "Decrease right"; }
+    }
+
+    scroll {
+        bind "v" { SwitchToMode "normal"; }
+        bind "e" { EditScrollback; SwitchToMode "locked"; }
+        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+    }
+    search {
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "n" { Search "down"; }
+        bind "N" { Search "up"; }
+    }
+    entersearch {
+        bind "Ctrl c" { SwitchToMode "scroll"; }
+        bind "esc" { SwitchToMode "scroll"; }
+        bind "enter" { SwitchToMode "search"; }
+    }
+    shared_among "scroll" "search" {
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+
+        bind "j" { ScrollDown; }
+        bind "k" { ScrollUp; }
+
+        bind "g" { ScrollToTop; }
+        bind "G" { ScrollToBottom; }
+    }
+
+    session {
+        bind "s" { SwitchToMode "normal"; }
+
+        bind "d" { Detach; }
+        bind "f" {
+            LaunchOrFocusPlugin "zellij:strider" {
+                floating true
+            }
+            SwitchToMode "locked"
+        }
+        bind "m" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "locked"
+        }
+    }
+}
+
+load_plugins {
+    zellij:link
+}
+
+web_client {
+    font "monospace"
+}
+
+show_startup_tips false
+
+theme "gruvbox-dark"
+theme_dark "gruvbox-dark"
+
+default_mode "locked"
+default_layout "compact-layout"

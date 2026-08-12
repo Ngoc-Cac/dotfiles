@@ -23,3 +23,5 @@ set vi-ins-mode-string "(\1\033[32m\2ins\1\033[0m\2) \1\033[0 q\2"
 
 "jk": vi-movement-mode
 "kj": vi-movement-mode
+
+"\C-l": clear-screen

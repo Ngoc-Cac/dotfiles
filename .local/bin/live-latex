@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "-h" || $1 == "--help" ]]; then
+    ESC=$(printf '\033')
+    cat << EOF
+Run latexmk with live preview (-pvc)
+
+${ESC}[1;4mUsage:${ESC}[0m
+  live-latex filename [outdir] [-o name | --output_name name] [--sync | -s]
+  live-latex -h | --help
+
+${ESC}[1;4mArguments:${ESC}[0m
+  filename    The input TeX file to compile
+  outdir      The output directory for the compield document. If not given, the
+                the current directory is used.
+
+${ESC}[1;4mOptions:${ESC}[0m
+  -o, --output_name    The name of the output files. If not given, the name of
+                         the input file is used.
+  -s, --sync           Enable SyncTeX forward/inverse search support for Neovim.
+                         Only enabled if running inside a Neovim instace.
+  -h, --help           Show this help message.
+EOF
+    exit 0
+fi
+
+
+ERROR="\033[31mError:\033[0m"
+WARN="\033[33mWarning:\033[0m"
+opts=()
+sync_enabled=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -s|--sync)
+            sync_enabled=true; shift
+            ;;
+        -o|--output_name)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                echo -e "$ERROR $1 missing jobname." >&2; exit 1
+            fi
+            jobname="-jobname=$2"; shift 2
+            ;;
+        -*)
+            echo -e "$ERROR Unknown option $1" >&2; exit 1
+            ;;
+        *)
+            if (( ${#opts[@]} == 0 )); then
+                opts+=("$1")
+            elif (( ${#opts[@]} == 1 )); then
+                opts+=("-outdir=$1")
+            else
+                echo -e "$ERROR Too many arguments given!" >&2; exit 1
+            fi
+            shift
+            ;;
+    esac
+done
+
+if (( ${#opts[@]} == 0 )); then
+    echo -e "$ERROR Missing the tex file to compile!" >&2; exit 1
+fi
+
+[[ -n "$jobname" ]] && opts+=("$jobname")
+
+if [[ "$sync_enabled" = true ]]; then
+    if [[ -n "$NVIM" ]]; then
+        export NVIM_TEX_SOCKET="$NVIM"
+    else
+        echo -e "$WARN \$NVIM is not set, SyncTeX is not enabled."
+    fi
+fi
+
+latexmk -pvc -pdf "${opts[@]}"

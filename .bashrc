@@ -1,3 +1,6 @@
+# guard clause against non-interactive sessions
+[[ $- != *i* ]] && return
+
 # the get the start time in terms of nanosecs
 STARTUP_TIME=$(date +%s%N)
 
@@ -6,19 +9,23 @@ _lazy_load() {
     local cmd_name="$1"
     local init_cmd="$2"
 
-    # unset the load fn first, then init the cmd
-    # and run it with given args
+    # unset the load fn first, then init the cmd and run it with given args
     eval "$cmd_name() {
         unset -f $cmd_name; eval \"\$($init_cmd)\"; $cmd_name \"\$@\"
     }"
 }
 
 # cache directory for some eval commands
-[[ ! -d ~/.config/.cache ]] && mkdir ~/.config/.cache
+[[ ! -d ~/.local/share/bash/eval_cache ]] && mkdir -p ~/.local/share/bash/eval_cache
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
+shopt -s histappend
 shopt -s no_empty_cmd_completion
+
+HISTFILE=~/.local/share/bash/.bash_history
+HISTCONTROL='ignoredups'
+HISTFILESIZE=100000
 
 
 # quick command to commit to the bare repo tracking this configuration setup
@@ -34,8 +41,8 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
 if _cmd_exists fzf; then
-    [[ ! -f ~/.config/.cache/fzf.sh ]] && fzf --bash > ~/.config/.cache/fzf.sh
-    . ~/.config/.cache/fzf.sh
+    [[ ! -f ~/.local/share/bash/eval_cache/fzf.sh ]] && fzf --bash > ~/.local/share/bash/eval_cache/fzf.sh
+    . ~/.local/share/bash/eval_cache/fzf.sh
 fi
 
 _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"

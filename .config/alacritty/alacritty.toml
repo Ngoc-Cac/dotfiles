@@ -1,8 +1,8 @@
 #:tombi schema.strict = false
 [general]
 import = [
-    "~/.config/alacritty/themes/srcery.toml",
-    # "~/.config/alacritty/themes/gruvbox-dark-hard-contrast.toml",
+    # "~/.config/alacritty/themes/srcery.toml",
+    "~/.config/alacritty/themes/gruvbox-dark-hard-contrast.toml",
     # "~/.config/alacritty/themes/gotham.toml",
     # "~/.config/alacritty/themes/flexoki_dark.toml",
 ]
@@ -16,7 +16,7 @@ decorations = "none"
 dimensions = { columns = 185, lines = 42 }
 position = { x = 22, y = 20 }
 padding = { x = 5, y = 10 }
-opacity = 0.97
+opacity = 0.90
 blur = true
 
 [font]
@@ -30,3 +30,11 @@ vi_mode_style = { shape = "Block", blinking = "Off" }
 
 [mouse]
 hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
+
+[keyboard]
+bindings = [
+    { key = "Back", mods = "Control", "chars" = "\u0017" }
+]
