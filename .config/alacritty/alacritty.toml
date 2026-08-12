@@ -9,13 +9,13 @@ import = [
 
 [window]
 decorations = "none"
-opacity = 0.95
+opacity = 0.87
 blur = true
 
 [font]
 normal = { family = "CaskaydiaMono Nerd Font", style = "SemiBold" }
 bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
-size = 11.2
+size = 11.5
 
 [cursor]
 style = { shape = "Beam", blinking = "Off" }
