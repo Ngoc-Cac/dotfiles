@@ -6,18 +6,18 @@
 
 ; the language switch stuff, its really annoying
 ; #Space::return
-#Space::
+#T::
 {
     ; WindowsTerminal.exe 
     if WinExist("ahk_exe alacritty.exe")
         WinActivate
 }
 
-!Enter::Run "alacritty.exe"  ; "wt.exe"
+#Enter::Run "alacritty.exe"  ; "wt.exe"
 !g::Run "glazewm.exe"
 
-; alt + q to close window
-!q::WinClose("A")
+; win + q to close active window
+#q::WinClose("A")
 
 ; for debugging the window group: Ctrl + Alt + W
 ; ^!w::MsgBox(WinGetClass("A"))
