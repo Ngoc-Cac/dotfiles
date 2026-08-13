@@ -41,6 +41,11 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
 if _cmd_exists fzf; then
+    [[ ! -f ~/.local/share/bash/eval_cache/gopass-complete.sh ]] && gopass completion bash > ~/.local/share/bash/eval_cache/gopass-complete.sh
+    . ~/.local/share/bash/eval_cache/gopass-complete.sh
+fi
+
+if _cmd_exists fzf; then
     [[ ! -f ~/.local/share/bash/eval_cache/fzf.sh ]] && fzf --bash > ~/.local/share/bash/eval_cache/fzf.sh
     . ~/.local/share/bash/eval_cache/fzf.sh
 fi
