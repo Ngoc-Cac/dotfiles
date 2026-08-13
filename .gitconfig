@@ -1,8 +1,8 @@
 [core]
-	autocrlf = input
+	autocrlf = true
 	symlinks = true
     editor = nvim
-    pager = "less -+X"
+    pager = "less -F"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
