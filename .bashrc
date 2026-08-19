@@ -4,7 +4,7 @@
 # the get the start time in terms of nanosecs
 STARTUP_TIME=$(date +%s%N)
 
-_cmd_exists() { command -v "$1" > /dev/null; }
+_cmd_exists() { command -v "$1" &> /dev/null; }
 _lazy_load() {
     local cmd_name="$1"
     local init_cmd="$2"
@@ -15,8 +15,6 @@ _lazy_load() {
     }"
 }
 
-# cache directory for some eval commands
-[[ ! -d ~/.local/share/bash/eval_cache ]] && mkdir -p ~/.local/share/bash/eval_cache
 
 shopt -s autocd  # auto cd when entering dirname
 shopt -s cdspell  # autocorrect path name
@@ -40,9 +38,13 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
 
+# cache directory for some eval commands
+CACHE_DIR="$HOME/.local/share/bash/eval_cache"
+mkdir -p "$CACHE_DIR"
+
 if _cmd_exists fzf; then
-    [[ ! -f ~/.local/share/bash/eval_cache/fzf.sh ]] && fzf --bash > ~/.local/share/bash/eval_cache/fzf.sh
-    . ~/.local/share/bash/eval_cache/fzf.sh
+    [[ ! -f "$CACHE_DIR/fzf.sh" ]] && fzf --bash > "$CACHE_DIR/fzf.sh"
+    . "$CACHE_DIR/fzf.sh"
 fi
 
 _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
