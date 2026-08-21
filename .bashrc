@@ -34,6 +34,7 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 . ~/.config/bash/aliases.sh
 . ~/.config/bash/functions.sh
 . ~/.config/bash/prompt.sh  # ps1 and 2 prompt
+. ~/.config/bash/gpg-agent.sh
 
 
 [[ -f ~/.config/.dircolors ]] && eval $(dircolors ~/.config/.dircolors)
