@@ -3,8 +3,6 @@
 
 _cmd_exists gpgconf && export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-if [[ -n "$SSH_TTY" || -n "$SSH_CLIENT" ]]; then
-    export GPG_TTY=$(tty)
-    pin_path=$(command -v pinentry-curses)
-    gpg-connect-agent "OPTION pinentry-program=$pin_path" updatestartuptty /bye &> /dev/null
-fi
+# This is needed for SSH sessions to use pinentry-curses
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye &> /dev/null
