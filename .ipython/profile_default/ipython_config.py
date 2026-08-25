@@ -18,3 +18,6 @@ c.AliasManager.user_aliases = [
     ("la", f"{eza} -Al"),
     ("lh", f"{eza} -ld .?*"),
 ]
+
+c.InteractiveShellApp.extensions = ['autoreload']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2']
