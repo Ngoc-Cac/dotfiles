@@ -63,6 +63,7 @@ keybinds clear-defaults=true {
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "F" { ToggleFocusFullscreen; SwitchToMode "locked"; }
 
+        bind ";" { FocusLastPane; }
         bind "z" { TogglePaneFrames; }
         bind "x" { CloseFocus; }
     }
@@ -134,9 +135,13 @@ keybinds clear-defaults=true {
 
     session {
         bind "s" { SwitchToMode "normal"; }
-
         bind "d" { Detach; }
-        bind "f" {
+
+        bind "[" { FocusHostSession; SwitchToMode "locked"; }
+        bind "]" { FocusGuestSession; SwitchToMode "locked"; }
+        bind "f" { ToggleHostFullscreen; SwitchToMode "locked"; }
+
+        bind "F" {
             LaunchOrFocusPlugin "zellij:strider" {
                 floating true
             }
@@ -161,9 +166,12 @@ web_client {
 }
 
 show_startup_tips false
+nested_session_handling "descend"
 
 theme "gruvbox-dark"
 theme_dark "gruvbox-dark"
 
+stacked_pane_list false
+pane_frame_style "full"
 default_mode "locked"
 default_layout "compact-layout"
