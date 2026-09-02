@@ -28,3 +28,21 @@ PS1+="\[$MAGENTA\]\$_PS1_GIT\[$RESET\]"
 PS1+=$'\n'"\$_EXIT_CODE_SYMBOL\[$RESET\]  "
 
 PS2="  󱞪 "
+
+
+# Zellij shell integration stuff: https://zellij.dev/documentation/shell-integration.html
+if [[ -n "$ZELLIJ" ]]; then
+    # prompt start + PS1 + prompt end
+    PS1="\[\033]133;A\033\\\\\]${PS1}\[\033]133;B\033\\\\\]"
+
+    # ran after a command is read, but before execution
+    PS0='\033]133;C\033\\'  # starts of command output
+
+    # ends of command + exit status
+    __zellij_osc133_precmd() {
+        local exit=$?
+        printf '\033]133;D;%s\033\\' "$exit"
+        return "$exit"
+    }
+    PROMPT_COMMAND="__zellij_osc133_precmd; $PROMPT_COMMAND"
+fi

@@ -33,7 +33,7 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # configurations and utilities
 . ~/.config/bash/aliases.sh
 . ~/.config/bash/functions.sh
-. ~/.config/bash/prompt.sh  # ps1 and 2 prompt
+. ~/.config/bash/prompt.sh  # ps1 and 2 prompt, some other stuff too
 . ~/.config/bash/gpg-agent.sh
 
 
@@ -52,7 +52,7 @@ _cmd_exists zoxide && _lazy_load go "zoxide init bash --cmd go"
 
 
 # only call fastfetch if not in nvim
-if [[ -z "$NVIM" ]] && _cmd_exists fastfetch; then
+if [[ -z $ZELLIJ && -z $NVIM ]] && _cmd_exists fastfetch; then
     export STARTUP_TIME=$(( ($(date +%s%N) - $STARTUP_TIME) / 1000000 ))
     fastfetch -c ~/.config/fastfetch/config.jsonc
     unset STARTUP_TIME
