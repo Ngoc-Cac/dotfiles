@@ -28,6 +28,11 @@ HISTFILESIZE=100000
 
 # quick command to commit to the bare repo tracking this configuration setup
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# bind bash completion for git to dot
+if declare -F _completion_loader >/dev/null 2>&1; then
+    _completion_loader git
+    complete -o default -o nospace -F __git_wrap__git_main dot
+fi
 
 
 # configurations and utilities
