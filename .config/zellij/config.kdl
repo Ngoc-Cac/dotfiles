@@ -109,6 +109,15 @@ keybinds clear-defaults=true {
         bind "v" { SwitchToMode "normal"; }
         bind "e" { EditScrollback; SwitchToMode "locked"; }
         bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+
+        bind "g" { ScrollToTop; }
+        bind "G" { ScrollToBottom; }
+        bind "esc" { ScrollToBottom; }
+
+        bind "[" { ScrollToPreviousPrompt; }
+        bind "]" { ScrollToNextPrompt; }
+
+        bind "c" { CopyLastCommandOutput; SwitchToMode "Normal"; }
     }
     search {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
