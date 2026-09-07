@@ -17,8 +17,8 @@
             "git log *": "allow",
             "git status *": "allow",
             "git diff *": "allow",
-            "git diff --cached *": "allow",
 
+            "ls *": "allow",
             "rg *": "allow",
             "grep *": "allow",
 
