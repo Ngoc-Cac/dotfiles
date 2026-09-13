@@ -4,6 +4,7 @@
 
 COLOR tty
 
+TERM alacritty
 TERM tmux-256color
 TERM tmux-direct
 TERM screen-256color
