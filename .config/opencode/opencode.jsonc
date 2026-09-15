@@ -4,11 +4,12 @@
         "*": "ask",
 
         "todowrite": "allow",
+        "grep": "allow",
         "glob": "allow",
         "read": {
             "*": "allow",
 
-            "*.env": "deny",
+            "*.env": "deny"
         },
 
         "bash": {
@@ -30,6 +31,6 @@
             "* rm *": "deny",
             "sudo *": "deny",
             "rm *": "deny"
-        },
+        }
     }
 }
