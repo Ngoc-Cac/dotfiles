@@ -6,6 +6,13 @@
         "prompt_submit": "ctrl+return"
     },
     "plugin": [
-        "@leohenon/opencode-vim-plugin"
+        [
+            "@leohenon/opencode-vim-plugin@latest",
+            {
+                "vim_initial_mode": "normal",
+                "vim_escape_sequence": "kj",
+                "vim_system_clipboard_register": true
+            }
+        ]
     ]
 }
