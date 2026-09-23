@@ -16,9 +16,13 @@
             "*": "ask",
 
             "git log *": "allow",
+            "git reflog *": "allow",
             "git status *": "allow",
             "git diff *": "allow",
+            "git show *": "allow",
+            "git blame *": "allow",
 
+            "sort *": "allow",
             "cat *": "allow",
             "echo *": "allow",
             "find *": "allow",
