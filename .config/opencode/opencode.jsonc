@@ -35,6 +35,10 @@
             "* rm *": "deny",
             "sudo *": "deny",
             "rm *": "deny"
-        }
+        },
+
+        "external_directory": {
+            "/tmp/opencode/**": "allow"
+        },
     }
 }
