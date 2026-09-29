@@ -2,6 +2,9 @@
     "$schema": "https://opencode.ai/config.json",
     "permission": {
         "*": "ask",
+        "external_directory": {
+            "/tmp/opencode/**": "allow"
+        },
 
         "todowrite": "allow",
         "grep": "allow",
@@ -24,9 +27,11 @@
 
             "sort *": "allow",
             "cat *": "allow",
+            "cut *": "allow",
             "echo *": "allow",
             "find *": "allow",
             "head *": "allow",
+            "tail *": "allow",
             "ls *": "allow",
             "rg *": "allow",
             "grep *": "allow",
@@ -35,10 +40,6 @@
             "* rm *": "deny",
             "sudo *": "deny",
             "rm *": "deny"
-        },
-
-        "external_directory": {
-            "/tmp/opencode/**": "allow"
-        },
+        }
     }
 }
