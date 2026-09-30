@@ -3,6 +3,9 @@
     "permission": {
         "*": "ask",
         "external_directory": {
+            "~/.ssh/**": "deny",
+            "~/.password-store/**": "deny",
+            "~/.gnupg/**": "deny",
             "/tmp/opencode/**": "allow"
         },
 
