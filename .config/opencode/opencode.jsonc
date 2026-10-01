@@ -15,7 +15,18 @@
         "read": {
             "*": "allow",
 
-            "*.env": "deny"
+            "*.env": "deny",
+            "*.env.*": "deny",
+
+            // in case I start in .gnupg or .password-store for whatever reason
+            "*.pem": "deny",
+            "*.key": "deny",
+            "*.p12": "deny",
+            "*.pfx": "deny",
+
+            "*.kdbx": "deny",
+            "*.asc": "deny",
+            "*.gpg": "deny"
         },
 
         "bash": {
