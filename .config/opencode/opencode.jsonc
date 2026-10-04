@@ -39,16 +39,36 @@
             "git show *": "allow",
             "git blame *": "allow",
 
-            "sort *": "allow",
-            "cat *": "allow",
-            "cut *": "allow",
-            "echo *": "allow",
+            "basename *": "allow",
+            "dirname *": "allow",
+            "file *": "allow",
+            "du *": "allow",
+            "tree *": "allow",
             "find *": "allow",
+            "ls *": "allow",
+
+            "cat *": "allow",
             "head *": "allow",
             "tail *": "allow",
-            "ls *": "allow",
+            "wc *": "allow",
+            "diff *": "allow",
+
             "rg *": "allow",
             "grep *": "allow",
+            "sort *": "allow",
+            "uniq *": "allow",
+            "cut *": "allow",
+            "tr *": "allow",
+            "join *": "allow",
+            "paste *": "allow",
+
+            "type *": "allow",
+            "which *": "allow",
+
+            "printf *": "allow",
+            "echo *": "allow",
+
+            "whoami *": "allow",
 
             "* sudo *": "deny",
             "* rm *": "deny",
