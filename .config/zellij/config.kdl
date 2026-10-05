@@ -176,6 +176,7 @@ web_client {
 
 show_startup_tips false
 nested_session_handling "descend"
+scroll_mode_sync false
 
 theme "gruvbox-dark"
 theme_dark "gruvbox-dark"
