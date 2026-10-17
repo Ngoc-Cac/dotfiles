@@ -1,79 +1,104 @@
 {
     "$schema": "https://opencode.ai/config.json",
-    "permission": {
-        "*": "ask",
-        "external_directory": {
-            "~/.ssh/**": "deny",
-            "~/.password-store/**": "deny",
-            "~/.gnupg/**": "deny",
-            "/tmp/opencode/**": "allow"
-        },
-
-        "todowrite": "allow",
-        "grep": "allow",
-        "glob": "allow",
-        "read": {
-            "*": "allow",
-
-            "*.env": "deny",
-            "*.env.*": "deny",
-
-            // in case I start in .gnupg or .password-store for whatever reason
-            "*.pem": "deny",
-            "*.key": "deny",
-            "*.p12": "deny",
-            "*.pfx": "deny",
-
-            "*.kdbx": "deny",
-            "*.asc": "deny",
-            "*.gpg": "deny"
-        },
-
-        "bash": {
-            "*": "ask",
-
-            "git log *": "allow",
-            "git reflog *": "allow",
-            "git status *": "allow",
-            "git diff *": "allow",
-            "git show *": "allow",
-            "git blame *": "allow",
-
-            "basename *": "allow",
-            "dirname *": "allow",
-            "file *": "allow",
-            "du *": "allow",
-            "tree *": "allow",
-            "find *": "allow",
-            "ls *": "allow",
-
-            "cat *": "allow",
-            "head *": "allow",
-            "tail *": "allow",
-            "wc *": "allow",
-            "diff *": "allow",
-
-            "rg *": "allow",
-            "grep *": "allow",
-            "sort *": "allow",
-            "uniq *": "allow",
-            "cut *": "allow",
-            "tr *": "allow",
-            "join *": "allow",
-            "paste *": "allow",
-
-            "type *": "allow",
-            "which *": "allow",
-
-            "printf *": "allow",
-            "echo *": "allow",
-
-            "whoami *": "allow",
-
-            "* sudo *": "deny",
-            "* rm *": "deny",
-            "sudo *": "deny",
-            "rm *": "deny"
+    "providers": {
+        "ollama": {
+            "package": "@opencode/ai/providers/openai-compatible",
+            "name": "Local Ollama",
+            "settings": { "baseURL": "http://localhost:11434/v1" },
+            "models": {
+                "qwen3-coder:30b-16k": {
+                    "name": "Qwen3 Coder 30B (16k)",
+                    "capabilities": { "tools": true },
+                    "limit": { "context": 16384, "output": 16384 }
+                },
+                "qwen3-coder:30b-24k": {
+                    "name": "Qwen3 Coder 30B (24k)",
+                    "capabilities": { "tools": true },
+                    "limit": { "context": 24576, "output": 16384 }
+                },
+                "qwen3-coder:30b-32k": {
+                    "name": "Qwen3 Coder 30B (32k)",
+                    "capabilities": { "tools": true },
+                    "limit": { "context": 32768, "output": 16384 }
+                }
+            }
         }
-    }
+    },
+    "permissions": [
+        { "action": "*", "resource": "*", "effect": "ask" },
+
+
+        // EXTERNAL DIRECTORY
+        { "action": "external_directory", "resource": "~/.ssh/*", "effect": "deny" },
+        { "action": "external_directory", "resource": "~/.password-store/*", "effect": "deny" },
+        { "action": "external_directory", "resource": "~/.gnupg/*", "effect": "deny" },
+        { "action": "external_directory", "resource": "/tmp/opencode/*", "effect": "allow" },
+
+        { "action": "todowrite", "resource": "*", "effect": "allow" },
+        { "action": "grep", "resource": "*", "effect": "allow" },
+        { "action": "glob", "resource": "*", "effect": "allow" },
+        { "action": "skill", "resource": "*", "effect": "allow" },
+
+
+        // READ
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*.env", "effect": "deny" },
+        { "action": "read", "resource": "*.env.*", "effect": "deny" },
+
+        { "action": "read", "resource": "*.pem", "effect": "deny" },
+        { "action": "read", "resource": "*.key", "effect": "deny" },
+        { "action": "read", "resource": "*.p12", "effect": "deny" },
+        { "action": "read", "resource": "*.pfx", "effect": "deny" },
+
+        { "action": "read", "resource": "*.kdbx", "effect": "deny" },
+        { "action": "read", "resource": "*.asc", "effect": "deny" },
+        { "action": "read", "resource": "*.gpg", "effect": "deny" },
+
+
+        // SHELL
+        { "action": "shell", "resource": "*", "effect": "ask" },
+
+        { "action": "shell", "resource": "git log *", "effect": "allow" },
+        { "action": "shell", "resource": "git reflog *", "effect": "allow" },
+        { "action": "shell", "resource": "git status *", "effect": "allow" },
+        { "action": "shell", "resource": "git diff *", "effect": "allow" },
+        { "action": "shell", "resource": "git show *", "effect": "allow" },
+        { "action": "shell", "resource": "git blame *", "effect": "allow" },
+
+        { "action": "shell", "resource": "basename *", "effect": "allow" },
+        { "action": "shell", "resource": "dirname *", "effect": "allow" },
+        { "action": "shell", "resource": "file *", "effect": "allow" },
+        { "action": "shell", "resource": "du *", "effect": "allow" },
+        { "action": "shell", "resource": "tree *", "effect": "allow" },
+        { "action": "shell", "resource": "find *", "effect": "allow" },
+        { "action": "shell", "resource": "ls *", "effect": "allow" },
+
+        { "action": "shell", "resource": "cat *", "effect": "allow" },
+        { "action": "shell", "resource": "head *", "effect": "allow" },
+        { "action": "shell", "resource": "tail *", "effect": "allow" },
+        { "action": "shell", "resource": "wc *", "effect": "allow" },
+        { "action": "shell", "resource": "diff *", "effect": "allow" },
+
+        { "action": "shell", "resource": "rg *", "effect": "allow" },
+        { "action": "shell", "resource": "grep *", "effect": "allow" },
+        { "action": "shell", "resource": "sort *", "effect": "allow" },
+        { "action": "shell", "resource": "uniq *", "effect": "allow" },
+        { "action": "shell", "resource": "cut *", "effect": "allow" },
+        { "action": "shell", "resource": "tr *", "effect": "allow" },
+        { "action": "shell", "resource": "join *", "effect": "allow" },
+        { "action": "shell", "resource": "paste *", "effect": "allow" },
+
+        { "action": "shell", "resource": "type *", "effect": "allow" },
+        { "action": "shell", "resource": "which *", "effect": "allow" },
+
+        { "action": "shell", "resource": "printf *", "effect": "allow" },
+        { "action": "shell", "resource": "echo *", "effect": "allow" },
+
+        { "action": "shell", "resource": "whoami *", "effect": "allow" },
+
+        { "action": "shell", "resource": "* sudo *", "effect": "deny" },
+        { "action": "shell", "resource": "* rm *", "effect": "deny" },
+        { "action": "shell", "resource": "sudo *", "effect": "deny" },
+        { "action": "shell", "resource": "rm *", "effect": "deny" }
+    ]
 }
