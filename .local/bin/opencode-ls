@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+if [[ $1 == "-h" || $1 == "--help" ]]; then
+    ESC=$(printf '\033')
+    cat << EOF
+List all saved opencode sessions, sorted by their last accessed time.
+
+${ESC}[1;4mUsage:${ESC}[0m
+  opencode-ls [-n NUM | -NUM]
+  opencode-ls -h | --help
+
+${ESC}[1;4mOptions:${ESC}[0m
+  -n NUM, -NUM    Print the first NUM sessions.
+  -h, --help      Show this help message.
+EOF
+    exit 0
+fi
+
+if ! command -v opencode > /dev/null; then
+    echo "opencode not found!"; exit 1
+fi
+
+if ! command -v sqlite3 > /dev/null; then
+    echo "sqlite3 not found!" >&2; exit 1
+fi
+
+
+ERROR="\033[31mError:\033[0m"
+WARN="\033[33mWarning:\033[0m"
+limit_clause=""
+case "${1:-}" in
+    "")
+        ;;
+    -[0-9]*)
+        limit_clause="LIMIT ${1#-}"
+        ;;
+    -n[0-9]*)
+        limit_clause="LIMIT ${1#-n}"
+        ;;
+    -n)
+        echo "$ERROR -n missing number of lines." >&2; exit 1
+        ;;
+    *)
+        echo "$ERROR Invalid argument '$1'." >&2; exit 1
+        ;;
+esac
+
+
+printf_fmt="'%-' || w_id || 's  %-' || w_time || 's  %-' || w_dir || 's  %s'"
+sql="
+WITH data AS (
+    SELECT
+        id,
+        datetime(time_updated/1000, 'unixepoch', 'localtime') AS time,
+        replace(directory, '$HOME', '~') AS directory,
+        title,
+        time_updated
+    FROM session_v2
+    WHERE parent_id IS NULL
+    ORDER BY time_updated DESC
+    $limit_clause
+),
+widths AS (
+    SELECT
+        MAX(MAX(length(id)), 2) AS w_id,
+        MAX(MAX(length(time)), 4) AS w_time,
+        MAX(MAX(length(directory)), 9) AS w_dir
+    FROM data
+)
+SELECT printf($printf_fmt, 'ID', 'Last Accessed', 'Directory', 'Title') FROM widths
+UNION ALL
+SELECT printf($printf_fmt, id, time, directory, title) FROM data, widths;"
+
+db_path=$(opencode debug paths db) || exit $?
+sqlite3 -readonly -list -noheader "$db_path" "$sql"
