@@ -1,19 +1,43 @@
 {
     "$schema": "https://opencode.ai/v2/cli.json",
-    "theme": {
-        "name": "gruvbox"
-    },
-    "diffs": {
-        "wrap": "word"
-    },
+    "theme": { "name": "gruvbox" },
+    "diffs": { "wrap": "word" },
+    "cursor": { "blinking": false },
+    "animations": true,
     "session": {
         "sidebar": "auto",
         "scrollbar": false,
-        "thinking": "hide"
+        "thinking": "hide",
+        "verbosity": "high"
     },
-    "animations": true,
+    "tabs": {
+      "mode": "auto",
+      "layout": "horizontal",
+      "scope": "global",
+      "indicators": "numbers"
+    },
     "keybinds": {
         "leader": "ctrl+o",
-        "prompt.submit": "ctrl+return"
-    }
+        "prompt.submit": "ctrl+return",
+        "agent.cycle": "tab",
+        "session.tab.close": "ctrl+w"
+    },
+    "plugins": [
+        {
+            "package": "/home/cactr/.local/share/opencode-vim-pr12/plugin/dist",
+            "options": {
+                "vim_initial_mode": "normal",
+                "vim_escape_sequence": "kj",
+                "vim_system_clipboard_register": true,
+                "normal_keybinds": {
+                    "ctrl+y": "session.line.up",
+                    "ctrl+e": "session.line.down",
+                    "ctrl+u": "session.half.page.up",
+                    "ctrl+d": "session.half.page.down",
+                    "ctrl+b": "session.page.up",
+                    "ctrl+f": "session.page.down"
+                }
+            }
+        }
+    ]
 }
