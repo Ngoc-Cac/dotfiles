@@ -24,7 +24,7 @@
     },
     "plugins": [
         {
-            "package": "/home/cactr/.local/share/opencode-vim-pr12/plugin/dist",
+            "package": "@leohenon/opencode-vim-plugin@beta",
             "options": {
                 "vim_initial_mode": "normal",
                 "vim_escape_sequence": "kj",
