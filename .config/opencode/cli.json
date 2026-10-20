@@ -17,10 +17,18 @@
       "indicators": "numbers"
     },
     "keybinds": {
-        "leader": "ctrl+o",
+        "leader": "ctrl+x",
+        "session.delete": "<leader>d",
         "prompt.submit": "ctrl+return",
         "agent.cycle": "tab",
-        "session.tab.close": "ctrl+w"
+        "queued_prompt.delete": "none",
+        "terminal.toggle": "none",
+        "session.list": "<leader>o",
+        "prompt.stash": "<leader>s",
+        "prompt.stash.list": "<leader>l",
+        "prompt.stash.pop": "<leader>p",
+        "composer.subagent.interrupt": "ctrl+shift+d",
+        "composer.shell.kill": "ctrl+shift+d"
     },
     "plugins": [
         {
