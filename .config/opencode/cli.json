@@ -17,6 +17,8 @@
       "indicators": "numbers"
     },
     "keybinds": {
+        "app.exit": "ctrl+c,<lead>q",
+
         "leader": "ctrl+x",
         "session.delete": "<leader>d",
         "prompt.submit": "ctrl+return",
