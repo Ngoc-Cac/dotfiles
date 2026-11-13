@@ -10,8 +10,23 @@ GRAY="\033[90m"
 
 RESET="\033[0m"
 
+if [[ $TERM == linux ]]; then
+    ICON_OK="+"
+    ICON_FAIL="x"
+    ICON_DIR=">"
+
+    PS2="  > "
+else
+    ICON_OK=""
+    ICON_FAIL=""
+    ICON_DIR="󰉋"
+
+    PS2="  󱞪 "
+fi
+
+
 # \001 and \002 is equivalent to \[ \]
-_exit_code_info() { [[ $? -eq 0 ]] && printf "\001$GREEN\002" || printf "\001$RED\002"; }
+_exit_code_info() { [[ $? -eq 0 ]] && printf "\001$GREEN\002$ICON_OK" || printf "\001$RED\002$ICON_FAIL"; }
 
 # if not set, conda will throw error because it can't
 # parse the ps1 command 
@@ -23,11 +38,9 @@ export GIT_PS1_SHOWCONFLICTSTATE=yes
 
 PROMPT_COMMAND='_PS1_GIT=$(__git_ps1 "%s"); _EXIT_CODE_SYMBOL=$(_exit_code_info)'
 
-PS1="[\[$BLUE\]\u@\h\[$RESET\]] \[$YELLOW\]󰉋 \w "
+PS1="[\[$BLUE\]\u@\h\[$RESET\]] \[$YELLOW\]$ICON_DIR \w "
 PS1+="\[$MAGENTA\]\$_PS1_GIT\[$RESET\]"
 PS1+=$'\n'"\$_EXIT_CODE_SYMBOL\[$RESET\]  "
-
-PS2="  󱞪 "
 
 
 # Zellij shell integration stuff: https://zellij.dev/documentation/shell-integration.html
